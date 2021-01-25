@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "M1wa9zBBFObfDXDyM29WhYGYj6yz/qLVQhVJhc43fpgNOB9HEW9DgzeTHPcCezk+RWFgp+vu122QOPyLwnB5sg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rafam\\Desktop\\InstaDev\\InstaDev-G5\\InstaDev-G5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rafam\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\rafam\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
