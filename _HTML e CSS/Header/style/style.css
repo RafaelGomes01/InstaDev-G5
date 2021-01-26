@@ -21,12 +21,18 @@ body{
 .content-header{
     width: 935px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-header{
+    width: 33.33%;
+    display: flex;
     align-items: center;
 }
 
 .form-header{
-    margin: 0 128px;
+    justify-content: center;
 }
 
 .form-header input{
@@ -44,4 +50,37 @@ body{
     text-align: initial;
     padding-left: 20px;
     color: black;
+}
+
+.menu-header{
+    justify-content: flex-end;
+}
+
+.menu-header a{
+    margin-left: 25px;
+}
+
+@media (max-width: 376px){
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .content-header{
+        width: auto;
+        justify-content: space-between;
+    }
+
+    .logo-header{
+        margin-right: 40px;
+    }
+    
+    .form-header{
+        display: none;
+    }
+
+    .menu-header a{
+        margin-left: 15px;
+    }
 }
