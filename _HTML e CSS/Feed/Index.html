@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style/style.css">
+    <title>header</title>
+</head>
+<body>
+    <!-- Header - Header -->
+    <header class="header">
+        <div class="content-header">
+            <div class="logo-header container-header">
+                <a href="#"><img src="img/header-logo.png" alt=""></a>
+            </div>
+            <div class="form-header container-header">
+                <form action="Search">
+                    <input type="text" placeholder="Pesquisar" id="search">
+                </form>
+            </div>
+            <div class="menu-header container-header">
+                <a href="#"><img src="img/header-icon1-dark.png" alt=""></a>
+                <a href="#"><img src="img/header-icon2.png" alt=""></a>
+                <a href="#"><img src="img/header-icon3.png" alt=""></a>
+                <a href="#"><img src="img/header-icon4.png" alt=""></a>
+                <a href="#"><img src="img/header-user.png" alt=""></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stories and Perfil - Section -->
+    <section class="header-feed">
+        <div class="stories">
+            <div class="wall resposta3" id="wall-1">
+                <div class="content-stories">
+                    <div class="left-stories arrows">
+                        <a href="#wall-2"><</a>
+                    </div>
+                    <div class="firstLoad-stories">
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/vin-diesel 1.svg">
+                                </div>
+                            </div>
+                            <p>vin_disel</p>
+                        </div>
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/gabigordo 1.svg">
+                                </div>
+                            </div>
+                            <p>gabigordo</p>
+                        </div>
+                        <div class="usuario-stories" id="will-baiano">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/will-baiano 1.svg">
+                                </div>
+                            </div>
+                            <p>will-baiano</p>
+                        </div>
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/tony_stark 1.svg">
+                                </div>
+                            </div>
+                            <p>adriano-stark</p>
+                        </div>
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/pele 1.svg">
+                                </div>
+                            </div>
+                            <p>king-pele</p>
+                        </div>
+                    </div>
+                    <div class="right-stories arrows">
+                        <a href="#wall-2">></a>
+                    </div>
+                </div>        
+            </div>
+        
+            <div class="wall" id="wall-2">
+                <div class="content-stories">
+                    <div class="left-stories arrows">
+                        <a href="#wall-1"><</a>
+                    </div>
+                    <div class="firstLoad-stories">
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/will-baiano 1.svg">
+                                </div>
+                            </div>
+                            <p>will-baiano</p>
+                        </div>
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/pele 1.svg">
+                                </div>
+                            </div>
+                            <p>king-pele</p>
+                        </div>
+                        <div class="usuario-stories" id="will-baiano">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/gabigordo 1.svg">
+                                </div>
+                            </div>
+                            <p>gabigordo</p>
+                        </div>
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/vin-diesel 1.svg">
+                                </div>
+                            </div>
+                            <p>vin_disel</p>
+                        </div>
+                        <div class="usuario-stories">
+                            <div class="circle">
+                                <div class="cicle-white">
+                                    <img src="img/tony_stark 1.svg">
+                                </div>
+                            </div>
+                            <p>adriano-stark</p>
+                        </div>
+                    </div>
+                    <div class="right-stories arrows">
+                        <a href="#wall-1">></a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <!-- Profile - div -->
+        <div class="profile">
+            <div class="image-profile">
+                <img src="img/profile-user.svg">
+            </div>
+            <div class="text-profile">
+                <a href="#"><h2>yes_baby</h2></a>
+                <a href="#"><p>Marcos Jeeves</p></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post - Section -->
+    <section class="post">
+        <div class="content-post">
+            <div class="image-post">
+                <img src="img/post-user.svg">
+                <p>Postar</p>
+            </div>
+            <hr>
+            <form action="post" class="form-post">
+                <input type="text" placeholder="Digite a descrição da imagem..." class="form-post-text">
+                <div class="form-post-file">
+                    <label for="arquivo">Escolha a imagem</label>
+                    <input type="file" name="arquivo" id="arquivo">
+                </div>
+                <button>Postar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Publication - Section -->
+    <section class="publication">
+        <div class="header-publication">
+            <div class="user-publication">
+                <div class="user-image">
+                    <a href="#"><img src="img/publication-user.svg"></a>
+                </div>
+                <div class="user-text">
+                    <a href="#"><p>gabigordo</p></a>
+                    <a href="#"><span>Flamengo, RJ</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="image-publication">
+            <img src="img/publication-image.svg">
+        </div>
+        <div class="footer-publication">
+            <div class="actions-footer">
+                <a href="#"><img src="img/publication-like.svg"></a>
+                <a href="#"><img src="img/publiction-comentario.svg"></a>
+                <form action="comentario" class="comentario-footer">
+                    <input type="text" placeholder="Comentar...">
+                </form>
+            </div>
+            <div class="likes-footer">
+                <p>2077 curtidas</p>
+            </div>
+            <div class="comentarios-publication">
+                <div class="comentarios">
+                    <div class="comentarios-footer">
+                        <p>gabigordo</p>
+                        <p><span>#flamengo</span> Amo vocês mil milhões SZ</p>
+                    </div>
+                    <div class="comentarios-footer">
+                        <p>yes_baby</p>
+                        <p>thank you</p>
+                    </div>
+                    <div class="comentarios-footer">
+                        <p>king-pele</p>
+                        <p>Esses são bons de bola, entende?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="publication">
+        <div class="header-publication">
+            <div class="user-publication">
+                <div class="user-image">
+                    <a href="#"><img src="img/publication-user.svg"></a>
+                </div>
+                <div class="user-text">
+                    <a href="#"><p>gabigordo</p></a>
+                    <a href="#"><span>Flamengo, RJ</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="image-publication">
+            <img src="img/publication-image.svg">
+        </div>
+        <div class="footer-publication">
+            <div class="actions-footer">
+                <a href="#"><img src="img/publication-like.svg"></a>
+                <a href="#"><img src="img/publiction-comentario.svg"></a>
+                <form action="comentario" class="comentario-footer">
+                    <input type="text" placeholder="Comentar...">
+                </form>
+            </div>
+            <div class="likes-footer">
+                <p>2077 curtidas</p>
+            </div>
+            <div class="comentarios-publication">
+                <div class="comentarios">
+                    <div class="comentarios-footer">
+                        <p>gabigordo</p>
+                        <p><span>#flamengo</span> Amo vocês mil milhões SZ</p>
+                    </div>
+                    <div class="comentarios-footer">
+                        <p>yes_baby</p>
+                        <p>thank you</p>
+                    </div>
+                    <div class="comentarios-footer">
+                        <p>king-pele</p>
+                        <p>Esses são bons de bola, entende?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>window.location = "#wall-1";</script>
+</body>
+</html>
