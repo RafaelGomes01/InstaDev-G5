@@ -1,0 +1,31 @@
+.body{
+    position: relative;
+    top: 150px;
+    width: 345px;
+    height: 470px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: blanchedalmond;
+    border: 1px solid #f1f1f1;
+    box-sizing: border-box;
+}
+.logoprincipal{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Imputs{
+    width: 267px;
+    height: 35px;
+    top: 282px;
+    left: 826px;
+    border-radius: 2px;
+}
+.botaoEntrar{
+    width: 267px;
+    height: 30px;
+    top: 378;
+    left: 826;
+    border-radius: 2px;
+}
