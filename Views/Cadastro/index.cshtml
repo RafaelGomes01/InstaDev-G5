@@ -1,0 +1,69 @@
+@* @model Usuario
+
+@{
+    ViewData["Title"] = "Cadastro de usuario";
+} *@
+
+<link rel="stylesheet" href="~/css/style_cadastro.css">
+
+@{
+    Layout = "_LayoutNoHeader";
+}
+
+<body>
+    <main class="content-subscribe">
+        <div class="body-subscribe">
+            <img src="~/img/Instadev.png"alt="logo principal Instadev">
+            <div class="text1-subscribe">
+                <h1>Cadastre-se para ver fotos e videos dos seus amigos.</h1>
+            </div>
+            <form class="inputs-subscribe" method="POST" action='@Url.Action("Cadastrar")' enctype="multipart/form-data">
+                <input class="input" type="text" name="Email" placeholder="Email" maxlength="30">
+                <input class="input" type="text" name="Nome" placeholder="Nome" maxlength="15">
+                <input class="input" type="text" name="UserName" placeholder="Nome de usuário" maxlength="15">
+                <input class="input" type="password" name="Senha" placeholder="Senha" minlength="10" maxlength="20">
+                <button class="btn-subscribe" type="submit">Cadastre-se</button>
+            </form>
+            
+            <div class="erro">@TempData.Peek("MensagemNome")</div>
+            <div class="erro">@TempData.Peek("MensagemEmail")</div>
+            <div class="erro">@TempData.Peek("MensagemUserName")</div>
+
+            <div class="term-subscribe">
+                <p>Ao se cadastrar, você concorda com nossos <span class="bold-terms">Termos, Politica de Dados</span> e  <span class="bold-terms">Politica de Cookies.</span></p>
+            </div>
+            <div class="connect-subscribe">
+                <p>Tem uma conta? <a asp-area="" asp-controller="Login">Conecte-se</a></p> 
+            </div>
+            <div class="link-subscribe">
+                <p>Obtenha o aplicativo.</p>
+            </div>
+            <div class="store-subscribe">
+                <img src="~/img/app_store 1.png" alt=" Botao Apple Store">
+                <img src="~/img/google_play 1.png" alt=" Botao Google Play">
+            </div>
+        </div>
+    </main>
+        <div class="footer-subscribe">
+        <ul>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Ajuda</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Privacidade</a></li>
+            <li><a href="#">Termos</a></li>
+            <li><a href="#">Contas mais relevantes</a></li>
+            <li><a href="#">Hashtags</a></li>
+            <li><a href="#">Localizações</a></li>
+        </ul>
+    </div>
+    <div class="footer-subscribe last">
+        <ul>
+            <li><a href="#">Português (Brasil)</a></li>
+            <li><a href="#">© 2021 InstaDev do Grupo 5</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

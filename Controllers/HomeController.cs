@@ -5,9 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using InstaDev_G5.Models;
+using back_end_totoal.Models;
+using Microsoft.AspNetCore.Http;
 
-namespace InstaDev_G5.Controllers
+namespace back_end_totoal.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,18 +21,14 @@ namespace InstaDev_G5.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // ViewBag que contem o nome logado na aplicação.
+            ViewBag.UserName = HttpContext.Session.GetString("_UserName");
+            return LocalRedirect("~/Login");
         }
 
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

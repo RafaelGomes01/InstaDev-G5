@@ -1,0 +1,100 @@
+﻿@using Prototipo_BackEnd.Models
+<link rel="stylesheet" href="~/css/style_feed.css">
+
+@{
+    Usuario usuario = new Usuario();
+    Publicacao publicacao1 = new Publicacao();
+    ViewData["Title"] = "InstaDev";
+}
+
+<!-- Post - Section -->
+<section class="post">
+    <div class="content-post">
+        <div class="image-post">
+            <div class="content-image-post">
+                <img src="~/img/Usuarios/@ViewBag.FotoLogado">
+            </div>
+            <p>Postar...</p>
+        </div>
+        <hr>
+        <form class="form-post"  method="POST" action='@Url.Action("Publicar")' enctype="multipart/form-data">
+            <div class="inputs-text">
+                <input type="text" name="Legenda" placeholder="Digite a descrição da imagem" class="form-post-text">
+                <input type="text" name="Localizacao" placeholder="Localização" class="form-post-text">
+            </div>
+            <div class="form-post-file">
+                <label for="arquivo">Escolha a imagem</label>
+                <input type="file" name="Imagem" id="arquivo">
+            </div>
+            <button type="submit">Postar</button>
+        </form>
+    </div>
+</section>
+
+@foreach (Publicacao publicacao in ViewBag.Publicacoes)
+{
+    <section class="publication">
+        <div class="header-publication">
+            <div class="user-publication">
+                <div class="user-image">
+                    <a href="#"><img src="../img/pub-perfil-icon.png"></a>
+                </div>
+                <div class="user-text">
+                    <a href="#"><p>@publicacao.NomeUsuario</p></a>
+                    <p>@publicacao.LocalizacaoUsuario</p>
+                </div>
+            </div>
+        </div>
+        <div class="image-publication">
+            <img src="~/img/Publicacoes/@publicacao.Imagem">
+        </div>
+        <div class="footer-publication">
+            <div class="actions-footer">
+                <form class="comentario-footer" method="POST" action='@Url.Action("Comentar")' enctype="multipart/form-data">
+                    <a><img src="../img/publication-like.svg"></a>
+                    <textarea class="idpublicacao" name="IdPublicacao">@publicacao.IdPublicacao</textarea>
+
+                    <button type="submit"><img src="../img/publiction-comentario.svg"></button>
+                    <input type="text" name="Comentario" placeholder="Comentar...">
+                </form>
+            </div>
+            <div class="likes-footer">
+                <p>2077 curtidas</p>
+            </div>
+
+            @{
+                foreach (Comentario comentario in ViewBag.Comentario)
+            {
+                if(comentario.IdPublicacao == publicacao.IdPublicacao){
+                    <div class="comentarios-publication">
+                        <div class="comentarios">
+                            <div class="comentarios-footer">
+                                <p>@comentario.UserName</p>
+                                <p>@comentario.Mensagem</p> 
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            }
+            @* <div class="comentarios-publication">
+                <div class="comentarios">
+                    <div class="comentarios-footer">
+                        <p>@ViewBag.UserPost</p>
+                        <p>@publicacao.Legenda</p>
+
+                    @{
+                        foreach (Comentario comentario in ViewBag.Comentario)
+                        {
+                            if(comentario.IdPublicacao == publicacao.IdPublicacao){
+                                <br><p>@comentario.UserName</p>
+                                <p>@comentario.Mensagem</p> 
+                            }
+                        }
+                    }
+                    </div>
+                </div>
+            </div> *@
+        </div>
+    </section>
+}

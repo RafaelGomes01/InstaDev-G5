@@ -1,0 +1,128 @@
+<link rel="stylesheet" href="~/css/style_perfil.css">
+
+@using Prototipo_BackEnd.Models
+@{Usuario usuario = new Usuario();}
+
+<body>
+    <!-- Informações do Perfil (Profile) -->
+    <div class="prof">
+        <div class="content">
+            <div class="flex-base">
+                <picture class="prof-userimg">
+                    <img src="~/img/Usuarios/@ViewBag.FotoLogado" alt="Foto de Perfil do Usário" style="width: 100%; border-radius: 50%;">
+                </picture>
+                <div class="prof-info">
+                    <div class="username">
+                        <h1>@ViewBag.UserNameLogado</h1>
+                        <a asp-area="" asp-controller="Editar" asp-action=Listar><p>Editar Perfil</p></a>
+                    </div>
+                    <div class="info-social">
+                        <p><span>@ViewBag.TotalPublicacoes</span> publicações</p>
+                        <span>@ViewBag.SeguidoresLogado</span> seguidores</>
+                        <p><span>@ViewBag.SeguindoLogado</span> seguindo</p>
+                    </div>
+                    <div class="name-logout">
+                        <h2>@ViewBag.NomeLogado</h2>
+                        <a asp-area="" asp-controller="Login" asp-action="Logout">Sair</a>
+                    </div>
+                </div>
+            </div>
+            <hr size="1px" width="100%" color="black">
+            <div class="pub-title">
+                <img src="~/img/pub-icon.png" alt="Ícone das publicações" class="pub-icon">
+                <h2>Publicações</h2>
+            </div>
+        </div>
+    </div>
+    
+    @foreach (Publicacao publicacao in ViewBag.Publicacoes)
+    {
+        @* <div class="pub">
+            <div class="content">
+        </div>
+        <section class="pub-template">
+            <picture class="info">
+                <img src="~/img/Publicacoes/@publicacao.Imagem" alt="Publicação do usuário" class="post">
+            </picture>
+            <div class="info-post">
+                <div class="prof-info-post">
+                    <img src="~/img/pub-perfil-icon.png" alt="Imagem de perfil do usuário que fez o post" class="fotoperfil-post">
+                    <div class="prof-nomereg">
+                        <h3>@ViewBag.UserNameLogado</h3>
+                        <p>São Paulo, Brasil</p>
+                    </div>
+                </div>
+                <picture class="pub-icon-like" style="font-size: 0.8rem;">
+                    <i onclick="HeartClick(this)" class="fa fa-heart-o fa-2x"></i>
+                    <i onclick="CommentClick(this)" class="fa fa-comment-o fa-2x"></i>
+                </picture>
+                <p class="likes">1954 curtidas</p>
+                <div class="post-comments">
+                    <p><span class="post-username">@publicacao.IdUsuario</span> @publicacao.Legenda</p>
+                    <p class="exp-comments">Ver todos os 585 comentários</p>
+                </div>
+            </div>
+        </section>
+    </div> *@
+<div class="align">
+    <section class="pub-template">
+        <picture class="info">
+            <img src="~/img/Publicacoes/@publicacao.Imagem" alt="Publicação do usuário" class="post">
+        </picture>
+        <div class="info-post">
+            <div class="perf-info-post">
+                <div class="content-image-perf">
+                    <img src="../img/pub-perfil-icon.png" alt="Imagem de perfil do usuário que fez o post" class="fotoperfil-post">
+                </div>
+                <!-- Nome - Região -->
+                <div class="perf-nomereg">
+                    <h3>@publicacao.NomeUsuario</h3>
+                    <p>@publicacao.LocalizacaoUsuario</p>
+                </div>
+            </div>
+            <picture class="pub-icon-like" style="font-size: 0.8rem;">
+                <i onclick="HeartClick(this)" class="fa fa-heart-o fa-2x"></i>
+                <i onclick="CommentClick(this)" class="fa fa-comment-o fa-2x"></i>
+            </picture>
+            <p class="curtidas">1954 curtidas</p>
+            <div class="post-comentarios">
+                <p><span class="post-username">fausto_silva</span> Esse cara é fera bixo!!!</p>
+                <p><span class="post-username">yes_baby</span> thank you</p>
+                <p><span class="post-username">adriano_stark</span> Quando eu adormecer, vou sonhar com você. É sempre você.</p>
+                <p><span class="post-username">yes_baby</span> Yes baby!!</p>
+                <p class="exp-comments">Ver todos os 585 comentários</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+}
+</body>
+
+<script>
+    function HeartClick(x) {
+        if(
+            x.classList.contains("fa-heart-o")
+        ){
+            x.classList.toggle("fa-heart-o", false);
+            x.classList.toggle("fa-heart", true);
+        }
+        else{
+            x.classList.toggle("fa-heart", false);
+            x.classList.toggle("fa-heart-o", true);
+        }
+    }
+    function CommentClick(x) {
+        if(
+            x.classList.contains("fa-comment-o")
+        ){
+            x.classList.toggle("fa-comment-o", false);
+            x.classList.toggle("fa-comment", true);
+        }
+        else{
+            x.classList.toggle("fa-comment", false);
+            x.classList.toggle("fa-comment-o", true);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #FAFAFA;
+}
+
+.edit-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit{
+    width: 935px;
+    height: 610px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #F1F1F1;
+}
+
+.menu{
+    width: 233px;
+    height: 100%;
+    border-right: 1px solid #F1F1F1;
+}
+
+.choice{
+    width: 2px;
+    height: 60px;
+    position: absolute;
+    background-color: black;
+}
+
+.menu h1{
+    font-size: 15px;
+    margin: 19px 29px;
+
+}
+
+.edit-menu{
+    width: 702px;
+    height: 100%;
+}
+
+.image-edit{
+    margin-left: 129px;
+    margin-top: 19px;
+    display: flex;
+    align-items: center;
+}
+
+.content-image-edit{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.content-image-edit img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #F1F1F1;
+}
+
+.name-image{
+    margin-left: 21px;
+}
+
+.name-image p{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.name-image label{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2686CC;
+}
+
+.name-image input{
+    display: none;
+}
+
+.form-edit{
+    margin-top: 23px;
+}
+
+.form-input{
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.form-input label{
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.form-input textarea{
+    width: 354px;
+    height: 25px;
+    padding-left: 10px;
+    color: #000000;
+    font-size: 12px;
+    border: 1px solid #DCDCDC;
+    margin-left: 12px;
+    resize: none;
+    vertical-align: middle;
+}
+
+.form-input textarea:focus{
+    outline: none;
+}
+
+.nome-form p{
+    width: 354px;
+    margin-left: 199px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #909090;
+}
+
+.nome-form p:nth-child(3){
+    margin-bottom: 38px;
+}
+
+.nome{
+    margin-left: 140px;
+}
+
+.nome-usuario{
+    margin-left: 70px;
+}
+
+.maioria{
+    margin-top: 28px;
+}
+
+.email{
+    margin-top: 17px;
+    margin-left: 143px;
+}
+
+.button{
+    margin-top: 57px;
+    margin-left: 200px;
+}
+
+.button button{
+    width: 66px;
+    height: 30px;
+    background-color: #2686CC;
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+}
+
+.button a{
+    margin-left: 75px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #2686CC;
+}

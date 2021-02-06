@@ -1,0 +1,385 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #FAFAFA;
+}
+
+.main{
+    /* Retângulo principal que sustenta a página*/
+    width: 100%;
+    height: 38.125em;
+    margin-top: 5em;
+    
+}
+
+.content{
+    width: 95%;
+    max-width: 75em;
+    height: 100%;
+    margin: auto;
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
+    display: flex;
+}
+
+.menuoptions{
+    width: 25%;
+    height: 100%;
+    border-right: 1px solid #afafaf;
+}
+
+.option{
+    height: 3.75em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.option h1{
+    margin-left: 1.2em;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
+}
+
+.cornerline{
+    /* Linha de destaque no canto superior esquerdo da página*/
+    width: 0;
+    height: 3.75em;
+    border: 2px solid #000000;
+}
+
+.prof-basic{
+    width: 26em;
+    height: 4em;
+    display: flex;
+    margin-top: 2em;
+}
+
+.prof-editpic{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prof-basic img{
+    /* Imagem do perfil */
+    width: 3.125em;
+    height: 3.125em;
+    /* margin-top: 1.5em;
+    margin-left: 5em; */
+    border-radius: 100px;
+}
+
+.prof-base{
+    margin-left: 1em;
+    width: 13.125em;
+    height: 2.875em;
+}
+
+.prof-base h2{
+    /* Nome do perfil: yes_baby */
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+}
+.prof-editpic a{
+    /* Link de Alterar foto do perfil*/
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #2686CC;
+    margin-top: 5px;
+}
+
+.prof-name{
+    width: 26.25em;
+    height: 8em;
+}
+
+.prof-edit{
+    margin-left: 1.2em;
+}
+
+.prof-title{
+    width: 20%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.name{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.name h2{
+    /* Nome em negrito */
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    
+}
+
+
+.Retangulo-menor-1 h3{
+    /* Nome real: Marcos Jeeves */ 
+    margin-left: 1.5em;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    
+    color: #000000;
+
+}
+.Retangulo-menor-1{
+    /* Primeiro retângulo menor */
+    width: 22.125em;
+    height: 1.875em;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    
+    background: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    box-sizing: border-box;
+    border-radius: 2px;
+ 
+}
+
+.name p{
+    /*Primeiro parágrafo*/ 
+
+    margin-top: 1em;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    
+    color: #909090;
+}
+.Paragraph{
+    /* Parágrafo entre informações */ 
+    
+
+    width: 30.125em;
+    height: 2em;
+    margin-top: 0.9375em;
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    
+    color: #909090;
+}
+.prof-username{
+    width: 35em;
+    height: 8em;
+}
+.UserName{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.UserName h2{
+    /* Nome de usuário: yes_baby*/
+
+    width: 118px;
+    height: 19px;
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    
+    color: #000000;
+}
+.UserName h3{
+    /* Nome de usuário: yes_baby */
+    margin-left: 1.5em;
+
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    
+    
+    color: #000000;
+    
+    
+}
+.Retangulo-menor-2{
+    /* Segundo retângulo menor */
+
+    width: 22.125em;
+    height: 1.875em;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+
+    background: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin-top: 15px;
+
+}
+.UserName p{
+    /* Primeiro paragráfo com informações extras */
+    width: 354px;
+    height: 32px;
+   
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    
+    color: #909090
+}
+.prof-email{
+    width: 26em;
+    height: 9em;
+    display: flex;
+}
+.Info h3{
+    /* Segundo parágrafo com "informações pessoais" */
+  
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    
+    color: #909090;
+}
+.prof-email .prof-title{
+    margin-top: 3.5em;
+    justify-content: center;
+}
+.Info h4{
+    /* Terceiro parágrafo com a descrição */
+    width: 29.125em;
+
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    
+    color: #909090;
+}
+.prof-email h2{
+
+    /* Email em negrito */
+    width: 45px;
+    height: 19px;
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    
+    color: #000000;
+}
+.Email h3{
+    /* Email pessoal*/
+    margin-left: 1.5em;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    
+    color: #000000;
+      
+}
+.Retangulo-menor-3{
+    width: 354px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #DCDCDC;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin-top: 15px;
+}
+.bottompage{
+    width: 22.125em;
+    height: 2em;
+    margin-left: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttondiv{
+    width: 66px;
+    height: 30px;
+}
+.button{
+    /* Enviar */
+    width: 3.25em;
+    height: 1.33em;
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    
+    color: #FFFFFF;
+    
+    /* Botão de Enviar */
+    position: absolute;
+    width: 66px;
+    height: 30px;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    
+    background: #2686CC;
+    border-radius: 2px;
+    
+}
+.Lastlink a{
+    /* Desativar minha conta definitivamente */
+    width: 354px;
+    height: 16px;
+    
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #2686CC;
+}

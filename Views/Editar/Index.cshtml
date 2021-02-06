@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="~/css/style_editarperfil.css">
+<body>
+    <main class="edit-content">
+        <div class="edit">
+            <div class="menu">
+                <div class="choice"></div>
+                <h1>Editar Perfil</h1>
+            </div>
+            <form method="POST" action='@Url.Action("EditarPerfil")' enctype="multipart/form-data">
+                <div class="edit-menu">
+                    <div class="image-edit">
+                        <div class="content-image-edit">
+                             <img src="~/img/Usuarios/@ViewBag.FotoLogado">
+                        </div>
+                        <div class="name-image">
+                            <p>@ViewBag.UserNameLogado</p>
+                            <label for="Foto">Alterar foto do Perfil</label>
+                            <input type="file" name="Foto" id="Foto">
+                        </div>
+                    </div>
+                    
+                    <div class="form-edit nome-form">
+                    <!-- <form class="nome-form" method="POST" action='@Url.Action("EditarPerfil")'> -->
+                        <div class="form-input nome">
+                            <label>Nome</label>
+                            @* <input type="text" name="Nome" placeholder="@ViewBag.NomeLogado"> *@
+                               <textarea name="Nome" maxlength="15">@ViewBag.NomeLogado</textarea>
+                        </div>
+                        <p>Ajude as pessoas a descobrir sua conta usando o nome pelo qual você é conhecido: seu nome completo, apelido ou nome comercial.</p>
+                        <p>Você pode alterar o seu nome apenas duas vezes a cada 14 dias.</p>
+
+                        <div class="form-input nome-usuario">
+                            <label>Nome de Usuario</label>
+                            @* <input type="text" name="UserName" placeholder="@ViewBag.UserNameLogado"> *@
+                            <textarea name="UserName" maxlength="15">@ViewBag.UserNameLogado</textarea>
+                        </div>
+                        <p>Na maioria dos casos, você poderá alterar seu nome de usuário novamente para nascimento_tr por mais 14 dias.</p>
+
+                        <p class="maioria">Informações pessoais
+                            Forneça suas informações pessoais, mesmo se a conta for usada para uma empresa, um animal de estimação ou outra coisa. Elas não farão parte do seu perfil público.</p>
+                        
+                        <div class="form-input email">
+                            <label>Email</label>
+                            <!-- <input type="text" placeholder="nomeuser"> -->
+                            @* <input type="text" name="Email" placeholder="@ViewBag.EmailLogado"> *@
+                            <textarea name="Email" maxlength="30">@ViewBag.EmailLogado</textarea>
+                        </div>
+                        
+                        <div class="button">
+                            <button type="submit">Enviar</button>
+                            <a href="#">Desativar minha conta definitivamente</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
