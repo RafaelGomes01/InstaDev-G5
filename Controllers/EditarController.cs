@@ -75,5 +75,11 @@ namespace back_end_totoal.Controllers
 
             return LocalRedirect("~/Perfil");
         }
+
+        public IActionResult ExcluirPerfil(){
+            int id = int.Parse(HttpContext.Session.GetString("_IdUsuarioLogado"));
+            usuario.DeletarUsuario(id);
+            return LocalRedirect("~/Cadastrar");
+        }
     }
 }

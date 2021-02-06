@@ -276,6 +276,11 @@ body{
     margin-bottom: 0px;
 }
 
+.user-text p:nth-child(2){
+    font-weight: 400;
+    font-size: 14px;
+}
+
 .footer-publication{
     margin-left: 16px;
 }
