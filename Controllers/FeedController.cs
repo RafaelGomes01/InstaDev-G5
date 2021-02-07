@@ -28,7 +28,7 @@ namespace Prototipo_BackEnd.Controllers
         {   
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
             ViewBag.Comentario = comentario.ReadAll();
-        
+                    
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
             ViewBag.NascimentoLogado = HttpContext.Session.GetString("_NascimentoLogado");
@@ -62,6 +62,7 @@ namespace Prototipo_BackEnd.Controllers
             novaPublicacao.IdPublicacao = publicacaoModel.IdGenerator();
             novaPublicacao.IdUsuario = int.Parse(HttpContext.Session.GetString("_IdUsuarioLogado"));
             novaPublicacao.NomeUsuario = HttpContext.Session.GetString("_UserNameLogado");
+            novaPublicacao.ImagemUsuario = HttpContext.Session.GetString("_FotoLogado");
             novaPublicacao.Legenda = form["Legenda"];
             novaPublicacao.LocalizacaoUsuario = form["Localizacao"];
             novaPublicacao.Likes = 0;

@@ -13,7 +13,8 @@ namespace Prototipo_BackEnd.Models
         public string Imagem { get; set; }
         public string Legenda { get; set; }
         public int Likes = 0;
-        public string NomeUsuario { get;set; } 
+        public string NomeUsuario { get;set; }
+        public string ImagemUsuario { get;set; }
         public string LocalizacaoUsuario { get; set; }
 
         // Atributos da classe
@@ -28,7 +29,7 @@ namespace Prototipo_BackEnd.Models
         }
 
         private string Prepare(Publicacao p){
-            return $"{p.IdPublicacao};{p.IdUsuario};{p.Imagem};{p.Legenda};{p.Likes};{p.NomeUsuario};{p.LocalizacaoUsuario}";
+            return $"{p.IdPublicacao};{p.IdUsuario};{p.Imagem};{p.Legenda};{p.Likes};{p.NomeUsuario};{p.ImagemUsuario};{p.LocalizacaoUsuario}";
         }
 
         public void Create(Publicacao p){
@@ -51,7 +52,8 @@ namespace Prototipo_BackEnd.Models
                 publicacao.Legenda = linha[3];
                 publicacao.Likes = int.Parse(linha[4]);
                 publicacao.NomeUsuario = linha[5];
-                publicacao.LocalizacaoUsuario = linha[6];
+                publicacao.ImagemUsuario = linha[6];
+                publicacao.LocalizacaoUsuario = linha[7];
                 publicacoes.Add(publicacao);
             }
 
@@ -75,7 +77,8 @@ namespace Prototipo_BackEnd.Models
                 publicacao.Legenda = linha[3];
                 publicacao.Likes = int.Parse(linha[4]);
                 publicacao.NomeUsuario = linha[5];
-                publicacao.LocalizacaoUsuario = linha[6];
+                publicacao.ImagemUsuario = linha[6];
+                publicacao.LocalizacaoUsuario = linha[7];
                 
                 publicacoes.Add(publicacao);
                 }
