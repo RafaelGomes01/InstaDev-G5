@@ -50,15 +50,22 @@
         </div>
         <div class="footer-publication">
             <div class="actions-footer">
+
+                <form method="POST" action='@Url.Action("Curtir")' enctype="multipart/form-data">
+                    <textarea class="idpublicacao" name="IdPublicacao2">@publicacao.IdPublicacao</textarea>
+                    <button type="submit"><img src="../img/@ViewBag.ImageLike"></button>
+                </form>
+
                 <form class="comentario-footer" method="POST" action='@Url.Action("Comentar")' enctype="multipart/form-data">
-                    <a><img src="../img/publication-like.svg"></a>
                     <textarea class="idpublicacao" name="IdPublicacao">@publicacao.IdPublicacao</textarea>
                     <button type="submit"><img src="../img/publiction-comentario.svg"></button>
                     <input type="text" name="Comentario" placeholder="Comentar...">
                 </form>
             </div>
             <div class="likes-footer">
-                <p>2077 curtidas</p>
+                @* <p>@ViewBag.TotalLikes curtidas</p> *@
+                <p>@ViewBag.TotalLikes</p>
+                <p></p>
             </div>
 
             @{

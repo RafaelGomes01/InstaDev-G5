@@ -12,7 +12,7 @@ namespace Prototipo_BackEnd.Models
         public int IdUsuario { get; set; }
         public string Imagem { get; set; }
         public string Legenda { get; set; }
-        public int Likes { get; set; }
+        public int Likes = 0;
         public string NomeUsuario { get;set; } 
         public string LocalizacaoUsuario { get; set; }
 
@@ -104,29 +104,6 @@ namespace Prototipo_BackEnd.Models
             RewriteCSV(PATH_PUBLICACOES, linhas);
         }
 
-        public string PrepareCSVLineLike(int idPublicacao, int idUsuario)
-        {
-            return $"{idPublicacao};{idUsuario}";
-        }
-
-        public void Like(int idPublicacao, int idUsuario)
-        {
-            string[] like = {PrepareCSVLineLike(idPublicacao, idUsuario)};
-
-            File.AppendAllLines(PATH_LIKES, like);
-        }
-
-        public void CancelLike(int idPublicacao, int idUsuario)
-        {
-            List<string> likes = ReadAllLinesCSV(PATH_LIKES);
-
-            string prepareCSVLineRemove = $"{idPublicacao};{idUsuario}";
-
-            likes.RemoveAll(x => x == prepareCSVLineRemove);
-
-            RewriteCSV(PATH_LIKES, likes); 
-        }
-
         public int IdGenerator(){
             string[] linhas = File.ReadAllLines(PATH_PUBLICACOES);
             int IdUsuario = 0;
@@ -166,6 +143,37 @@ namespace Prototipo_BackEnd.Models
                 }
             }
             return $"{totalPub}";
+        }
+
+        // LIkeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        public string PrepareCSVLineLike(int idPublicacao, int idUsuario){
+            return $"{idPublicacao};{idUsuario}";
+        }
+
+        public void Like(int idPublicacao, int idUsuario){
+            string[] like = {PrepareCSVLineLike(idPublicacao, idUsuario)};
+            File.AppendAllLines(PATH_LIKES, like);
+        }
+
+        public void CancelLike(int idPublicacao, int idUsuario){
+            List<string> likes = ReadAllLinesCSV(PATH_LIKES);
+            string prepareCSVLineRemove = $"{idPublicacao};{idUsuario}";
+            likes.RemoveAll(x => x == prepareCSVLineRemove);
+            RewriteCSV(PATH_LIKES, likes); 
+        }
+
+        public int TotalLikes(int id){
+            string[] linhas = File.ReadAllLines(PATH_LIKES);
+            int likes = 0;
+
+            foreach (var item in linhas)
+            {
+                if(int.Parse(item.Split(";")[0]) == id){
+                    likes++;
+                }
+            }
+
+            return likes;
         }
     }
 }

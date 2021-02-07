@@ -168,10 +168,9 @@ namespace back_end_totoal.Models
 
         // Listar Perfil do usuario Logado
         public string SeguidoresAndSeguindo(int id){
-            // List<string> usuarios = ReadAllLinesCSV(PATH_SEGUINDO    );
-             string[] linhas = File.ReadAllLines(PATH_SEGUINDO);
-             int seguindo = 0;
-             int seguidores = 0;
+            string[] linhas = File.ReadAllLines(PATH_SEGUINDO);
+            int seguindo = 0;
+            int seguidores = 0;
 
             foreach (var item in linhas)
             {
@@ -183,7 +182,7 @@ namespace back_end_totoal.Models
             foreach (var item in linhas)
             {
                 if(int.Parse(item.Split(";")[1]) == id){
-                    seguidores ++;
+                    seguidores++;
                 }
             }
 

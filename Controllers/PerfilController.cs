@@ -76,46 +76,5 @@ namespace back_end_totoal.Controllers
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
             return View();
         }
-
-        [Route("Publicar")]
-        public IActionResult Publicar(IFormCollection form)
-        {
-            Publicacao novaPublicacao = new Publicacao();
-
-            novaPublicacao.IdPublicacao = int.Parse(form["IdPub"]);
-            novaPublicacao.IdUsuario = int.Parse(form["IdUser"]);
-            novaPublicacao.Legenda = form["Legenda"];
-            novaPublicacao.Likes = int.Parse(form["Curtidas"]);
-            novaPublicacao.NomeUsuario = HttpContext.Session.GetString("_UserNameLogado");
-
-            ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-
-            if(form.Files.Count > 0){
-                var file = form.Files[0];
-                var folder = Path.Combine( Directory.GetCurrentDirectory(), "wwwroot/img/Publicacoes" );
-
-                if(!Directory.Exists(folder)){
-                    Directory.CreateDirectory(folder);
-                }
-
-                var PATH = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/", folder, file.FileName);
-
-                ViewBag.Publicacoes = publicacaoModel.ReadAll(int.Parse(ViewBag._IdUsuarioLogado));
-
-                using (var stream = new FileStream(PATH,FileMode.Create)){
-                    file.CopyTo(stream);
-                }
-
-                novaPublicacao.Imagem = file.FileName;
-            }else{
-                novaPublicacao.Imagem = "post.png";
-            }
-
-            publicacaoModel.Create(novaPublicacao);
-
-            ViewBag.Publicacoes = publicacaoModel.ReadAll();
-
-            return LocalRedirect ("~/Perfil");
-        }
     }
 }

@@ -28,7 +28,7 @@ namespace Prototipo_BackEnd.Controllers
         {   
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
             ViewBag.Comentario = comentario.ReadAll();
-            
+        
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
             ViewBag.NascimentoLogado = HttpContext.Session.GetString("_NascimentoLogado");
@@ -38,6 +38,8 @@ namespace Prototipo_BackEnd.Controllers
             ViewBag.SenhaLogado = HttpContext.Session.GetString("_SenhaLogado");
 
             ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
+
+            
 
             bool redirecionamentoLogado = false;
 
@@ -115,6 +117,26 @@ namespace Prototipo_BackEnd.Controllers
             novoComentario.UserName = HttpContext.Session.GetString("_UserNameLogado");
             
             comentario.CriarComentario(novoComentario);
+            return LocalRedirect("~/Feed/Listar");
+        }
+
+        [Route("Curtir")]
+        public IActionResult Curtir(IFormCollection form){
+            int idPub = int.Parse(form["IdPublicacao2"]);
+            int idUser = int.Parse(HttpContext.Session.GetString("_IdUsuarioLogado"));
+            
+            List<string> likes = usuario.ReadAllLinesCSV(PATH_LIKES);
+
+            var like = likes.Find(x=> x == $"{idPub};{idUser}");
+
+            if(like != null){
+                publicacaoModel.CancelLike(idPub, idUser);
+                
+            }else{
+                publicacaoModel.Like(idPub, idUser);
+                ViewBag.TotalLikes = publicacaoModel.TotalLikes(idPub);
+            }
+            
             return LocalRedirect("~/Feed/Listar");
         }
     }
