@@ -117,6 +117,7 @@ body{
 }
 
 .connect-subscribe a{
+    font-weight: 600;
     color: #2686CC;
 }
 

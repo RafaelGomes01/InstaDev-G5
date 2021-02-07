@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using back_end_totoal.Models;
@@ -14,34 +15,32 @@ namespace Prototipo_BackEnd.Models
         public int Likes { get; set; }
         public string NomeUsuario { get;set; } 
         public string LocalizacaoUsuario { get; set; }
-        private const string PATH = "Database/publicacao.csv";
-        private const string PATH_USUARIO = "Database/usuarios.csv";
-        private const string PATH_LIKE = "Database/likes.csv";
 
-        public Publicacao()
-        {
-            CreateFolderAndFile(PATH, PATH_LIKE);
+        // Atributos da classe
+        private const string PATH = "Database/usuarios.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
+
+        public Publicacao(){
+            CreateFolderAndFile(PATH_PUBLICACOES, PATH_LIKES);
         }
 
-        private string Prepare(Publicacao p)
-        {
+        private string Prepare(Publicacao p){
             return $"{p.IdPublicacao};{p.IdUsuario};{p.Imagem};{p.Legenda};{p.Likes};{p.NomeUsuario};{p.LocalizacaoUsuario}";
         }
-        public void Create(Publicacao p)
-        {
-            string[] linhasP = { Prepare(p) };
 
-            File.AppendAllLines(PATH, linhasP);
+        public void Create(Publicacao p){
+            string[] linhasP = { Prepare(p) };
+            File.AppendAllLines(PATH_PUBLICACOES, linhasP);
         }
 
-        public List<Publicacao> ReadAll()
-        {
+        public List<Publicacao> ReadAll(){
             List<Publicacao> publicacoes = new List<Publicacao>();
+            string[] linhas = File.ReadAllLines(PATH_PUBLICACOES);
 
-            string[] linhas = File.ReadAllLines(PATH);
-
-            foreach (var item in linhas)
-            {
+            foreach (var item in linhas){
                 string[] linha = item.Split(";");
 
                 Publicacao publicacao = new Publicacao();
@@ -53,23 +52,19 @@ namespace Prototipo_BackEnd.Models
                 publicacao.Likes = int.Parse(linha[4]);
                 publicacao.NomeUsuario = linha[5];
                 publicacao.LocalizacaoUsuario = linha[6];
-
                 publicacoes.Add(publicacao);
             }
 
             return publicacoes;
         }
 
-        public List<Publicacao> ReadAll(int id)
-        {
+        public List<Publicacao> ReadAll(int id){
             List<Publicacao> publicacoes = new List<Publicacao>();
 
-            string[] linhas = File.ReadAllLines(PATH);
+            string[] linhas = File.ReadAllLines(PATH_PUBLICACOES);
 
-            foreach (var item in linhas)
-            {
-                if(int.Parse(item.Split(";")[1]) == id)
-                {
+            foreach (var item in linhas){
+                if(int.Parse(item.Split(";")[1]) == id){
                 string[] linha = item.Split(";");
 
                 Publicacao publicacao = new Publicacao();
@@ -91,22 +86,22 @@ namespace Prototipo_BackEnd.Models
 
         public void Update(Publicacao p)
         {
-            List<string> linhas = ReadAllLinesCSV(PATH);
+            List<string> linhas = ReadAllLinesCSV(PATH_PUBLICACOES);
 
             linhas.RemoveAll(x => x.Split(";")[0] == p.IdPublicacao.ToString());
 
             linhas.Add( Prepare(p) );
 
-            RewriteCSV(PATH, linhas);
+            RewriteCSV(PATH_PUBLICACOES, linhas);
         }
 
         public void Delete(int idPublicacao)
         {
-            List<string> linhas = ReadAllLinesCSV(PATH);
+            List<string> linhas = ReadAllLinesCSV(PATH_PUBLICACOES);
 
             linhas.RemoveAll(x => x.Split(";")[0] == IdPublicacao.ToString());
 
-            RewriteCSV(PATH, linhas);
+            RewriteCSV(PATH_PUBLICACOES, linhas);
         }
 
         public string PrepareCSVLineLike(int idPublicacao, int idUsuario)
@@ -118,23 +113,22 @@ namespace Prototipo_BackEnd.Models
         {
             string[] like = {PrepareCSVLineLike(idPublicacao, idUsuario)};
 
-            File.AppendAllLines(PATH_LIKE, like);
+            File.AppendAllLines(PATH_LIKES, like);
         }
 
         public void CancelLike(int idPublicacao, int idUsuario)
         {
-            List<string> likes = ReadAllLinesCSV(PATH_LIKE);
+            List<string> likes = ReadAllLinesCSV(PATH_LIKES);
 
             string prepareCSVLineRemove = $"{idPublicacao};{idUsuario}";
 
             likes.RemoveAll(x => x == prepareCSVLineRemove);
 
-            RewriteCSV(PATH_LIKE, likes); 
+            RewriteCSV(PATH_LIKES, likes); 
         }
 
-        // Listar todos os Usuarios
         public int IdGenerator(){
-            string[] linhas = File.ReadAllLines(PATH);
+            string[] linhas = File.ReadAllLines(PATH_PUBLICACOES);
             int IdUsuario = 0;
             bool loop = true;
             
@@ -159,20 +153,10 @@ namespace Prototipo_BackEnd.Models
             return IdUsuario;
         }
 
-        public string UsuarioPostagem(int idUsuarioPublicacao){
-            List<string> usuarios = ReadAllLinesCSV(PATH_USUARIO);
-            var userPost = 
-            usuarios.Find(
-                x =>
-                int.Parse(x.Split(";")[0]) == idUsuarioPublicacao 
-            );
-
-            return $"{userPost.Split(";")[6]}";
-        }
         public string TotalPublicacoes(int id)
         {
             int totalPub = 0;
-            string[] linhasP = File.ReadAllLines(PATH);
+            string[] linhasP = File.ReadAllLines(PATH_PUBLICACOES);
 
             foreach (var item in linhasP)
             {

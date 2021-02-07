@@ -19,12 +19,18 @@ namespace back_end_totoal.Models
         public string UserName { get; set; }
         public string Senha { get; set; }
         
+        // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
-        private const string PATH_FOLLOW = "Database/seguindo.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
+
+
 
         // Criar a paste e arquivo
         public Usuario(){
-            CreateFolderAndFile(PATH, PATH_FOLLOW);
+            CreateFolderAndFile(PATH, PATH_SEGUINDO);
         }
 
         // Adicionar um usuario no arquivo CSV
@@ -139,7 +145,7 @@ namespace back_end_totoal.Models
             string[] follow = {PrepareCSVLineFollow(id_UsuarioLogado, id_UsuarioSeguindo)};
 
             // Adicionar Linha no CSV
-            File.AppendAllLines(PATH_FOLLOW, follow);
+            File.AppendAllLines(PATH_SEGUINDO, follow);
         }
 
         // Preparar a linha para ser adicionada no CSV Seguindo 
@@ -151,19 +157,19 @@ namespace back_end_totoal.Models
         // Remover um seguidor de um usuario logado
         public void DeixarSeguir(int id_UsuarioLogado, int id_UsuarioSeguindo){
             // Adicionar uma lista que vai ler todos as linhas do CSV
-            List<string> seguindo = ReadAllLinesCSV(PATH_FOLLOW);
+            List<string> seguindo = ReadAllLinesCSV(PATH_SEGUINDO);
             // Preparar a linha que vai ser removida
             string prepareCSVLineRemove = $"{id_UsuarioLogado};{id_UsuarioSeguindo}";
             // Utilizando uma expressão lambda para remover os usuarios
             seguindo.RemoveAll(x => x == prepareCSVLineRemove);
             // Reescrever o CSV atualizado
-            RewriteCSV(PATH_FOLLOW, seguindo); 
+            RewriteCSV(PATH_SEGUINDO, seguindo); 
         }
 
         // Listar Perfil do usuario Logado
         public string SeguidoresAndSeguindo(int id){
-            // List<string> usuarios = ReadAllLinesCSV(PATH_FOLLOW);
-             string[] linhas = File.ReadAllLines(PATH_FOLLOW);
+            // List<string> usuarios = ReadAllLinesCSV(PATH_SEGUINDO    );
+             string[] linhas = File.ReadAllLines(PATH_SEGUINDO);
              int seguindo = 0;
              int seguidores = 0;
 

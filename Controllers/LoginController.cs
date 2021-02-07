@@ -16,7 +16,13 @@ namespace back_end_totoal.Controllers
         // Atributos da Classe
         [TempData] // Arquivo Temporario
         public string Mensagem { get; set; }
+
+        // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
 
         // Index para chama a pagina
         public IActionResult Index(){

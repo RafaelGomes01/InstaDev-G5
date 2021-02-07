@@ -12,15 +12,21 @@ namespace back_end_totoal.Controllers
     [Route("Perfil")]
     public class PerfilController : Controller 
     {
+        // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
+        
         Usuario usuario = new Usuario();
         Publicacao publicacaoModel = new Publicacao();
         Comentario comentario = new Comentario();
 
 
+
         public IActionResult Index(){
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
-            ViewBag.UserPost = publicacaoModel.UsuarioPostagem(publicacaoModel.IdUsuario);
 
             List<string> usuarios = usuario.ReadAllLinesCSV(PATH);
 

@@ -37,7 +37,7 @@
         <div class="header-publication">
             <div class="user-publication">
                 <div class="user-image">
-                    <a href="#"><img src="../img/pub-perfil-icon.png"></a>
+                    <a href="#"><img src="../img/Usuarios/@ViewBag.FotoUsuarioPostagem"></a>
                 </div>
                 <div class="user-text">
                     <a href="#"><p>@publicacao.NomeUsuario</p></a>
@@ -53,7 +53,6 @@
                 <form class="comentario-footer" method="POST" action='@Url.Action("Comentar")' enctype="multipart/form-data">
                     <a><img src="../img/publication-like.svg"></a>
                     <textarea class="idpublicacao" name="IdPublicacao">@publicacao.IdPublicacao</textarea>
-
                     <button type="submit"><img src="../img/publiction-comentario.svg"></button>
                     <input type="text" name="Comentario" placeholder="Comentar...">
                 </form>
@@ -77,24 +76,6 @@
                 }
             }
             }
-            @* <div class="comentarios-publication">
-                <div class="comentarios">
-                    <div class="comentarios-footer">
-                        <p>@ViewBag.UserPost</p>
-                        <p>@publicacao.Legenda</p>
-
-                    @{
-                        foreach (Comentario comentario in ViewBag.Comentario)
-                        {
-                            if(comentario.IdPublicacao == publicacao.IdPublicacao){
-                                <br><p>@comentario.UserName</p>
-                                <p>@comentario.Mensagem</p> 
-                            }
-                        }
-                    }
-                    </div>
-                </div>
-            </div> *@
         </div>
     </section>
 }

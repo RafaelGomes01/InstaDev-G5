@@ -10,17 +10,21 @@ namespace back_end_totoal.Models
         public int IdUsuario { get; set; }
         public int IdPublicacao { get; set; }
         public string UserName {get; set;}
-        
-        private const string PATH_COMENTARIO = "Database/comentarios.csv";
-        private const string PATH_FOLLOW = "Database/seguindo.csv";
+
+        // Atributos da classe
+        private const string PATH = "Database/usuarios.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
 
         public Comentario(){
-            CreateFolderAndFile(PATH_COMENTARIO, PATH_FOLLOW);
+            CreateFolderAndFile(PATH_COMENTARIOS, PATH_SEGUINDO);
         }
 
         public void CriarComentario(Comentario comentario){
             string[] linhas = {PrepareCSVLineComentario(comentario)};
-            File.AppendAllLines(PATH_COMENTARIO, linhas);
+            File.AppendAllLines(PATH_COMENTARIOS, linhas);
         }
 
         public string PrepareCSVLineComentario(Comentario comentario){
@@ -31,7 +35,7 @@ namespace back_end_totoal.Models
             // Criar uma lista com os usuarios
             List<Comentario> comentarios = new List<Comentario>();
             // Pegar as linhas do CSV
-            string[] linhas = File.ReadAllLines(PATH_COMENTARIO);
+            string[] linhas = File.ReadAllLines(PATH_COMENTARIOS);
             // Foreach para listar os usuarios
             foreach (var item in linhas){
                 string[] linha = item.Split(";");
@@ -52,27 +56,27 @@ namespace back_end_totoal.Models
 
         public void EditarComentario(int id, Comentario comentario){
             // Pegar todas as linhas do CSV
-            List<string> comentarios = ReadAllLinesCSV(PATH_COMENTARIO);
+            List<string> comentarios = ReadAllLinesCSV(PATH_COMENTARIOS);
             // Remover a linha aonde o ID for igual ao requerido
             comentarios.RemoveAll(x => int.Parse(x.Split(";")[0]) == id);
             // Adicionar com o dado Alterado
             comentarios.Add(PrepareCSVLineComentario(comentario));
             // Reescrever no arquivo CSV
-            RewriteCSV(PATH_COMENTARIO, comentarios);
+            RewriteCSV(PATH_COMENTARIOS, comentarios);
         }
         
         // Deletar um usuario no CSV
         public void DeletarComentario(int id){
             // Lendo as linhas do CSV
-            List<string> comentarios = ReadAllLinesCSV(PATH_COMENTARIO);
+            List<string> comentarios = ReadAllLinesCSV(PATH_COMENTARIOS);
             // Removendo aquela que for requerida pelo ID
             comentarios.RemoveAll(x => x.Split(";")[0] == id.ToString());
             // Reescrever com o arquivo deletado
-            RewriteCSV(PATH_COMENTARIO, comentarios);
+            RewriteCSV(PATH_COMENTARIOS, comentarios);
         }
 
         public int IdGenerator(){
-            string[] linhas = File.ReadAllLines(PATH_COMENTARIO);
+            string[] linhas = File.ReadAllLines(PATH_COMENTARIOS);
             int IdUsuario = 0;
             bool loop = true;
             

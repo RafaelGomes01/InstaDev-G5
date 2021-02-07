@@ -11,19 +11,24 @@ namespace Prototipo_BackEnd.Controllers
     [Route("Feed")]
     public class FeedController : Controller
     {
-        private const string PATH_COMENTARIO = "Database/comentarios.csv";
+
+        // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
+        
         Publicacao publicacaoModel = new Publicacao();
         Comentario comentario = new Comentario();
         Usuario usuario = new Usuario();
 
         [Route("Listar")]
         public IActionResult Index()
-        {
-            ViewBag.UserPost = publicacaoModel.UsuarioPostagem(publicacaoModel.IdUsuario);
+        {   
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
             ViewBag.Comentario = comentario.ReadAll();
-
+            
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
             ViewBag.NascimentoLogado = HttpContext.Session.GetString("_NascimentoLogado");
@@ -104,7 +109,8 @@ namespace Prototipo_BackEnd.Controllers
             novoComentario.IdComentario = comentario.IdGenerator();
             novoComentario.Mensagem = form["Comentario"];
             novoComentario.IdUsuario = int.Parse(HttpContext.Session.GetString("_IdUsuarioLogado"));
-            novoComentario.IdPublicacao = int.Parse(form["IdPublicacao"]);
+            ViewBag.IdPublicacao = int.Parse(form["IdPublicacao"]);
+            novoComentario.IdPublicacao = ViewBag.IdPublicacao;
 
             novoComentario.UserName = HttpContext.Session.GetString("_UserNameLogado");
             

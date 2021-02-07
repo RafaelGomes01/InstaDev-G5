@@ -23,8 +23,11 @@ namespace back_end_totoal.Controllers
         public string MensagemUserName { get; set; }
 
         // Atributos da classe
-        private const string PATH_FOLLOW = "Database/seguindo.csv";
         private const string PATH = "Database/usuarios.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
 
         // Iniciar a pagina
         public IActionResult Index(){
@@ -100,7 +103,7 @@ namespace back_end_totoal.Controllers
             // Conversão de string para int
             int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
             // Todas as linhas do CSV
-            List<string> seguindo = usuario.ReadAllLinesCSV(PATH_FOLLOW);
+            List<string> seguindo = usuario.ReadAllLinesCSV(PATH_SEGUINDO);
             // Expressão Lambda para validar se o usuario ja esta ou não seguindo aquele perfil
             var JaSeguindo =
             seguindo.Find(

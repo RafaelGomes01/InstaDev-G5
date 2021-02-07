@@ -12,7 +12,13 @@ namespace back_end_totoal.Controllers
     public class Editar : Controller
     {
         Usuario usuario = new Usuario();
+        
+        // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
+        private const string PATH_PUBLICACOES = "Database/publicacao.csv";
+        private const string PATH_COMENTARIOS = "Database/comentarios.csv";
+        private const string PATH_LIKES = "Database/likes.csv";
+        private const string PATH_SEGUINDO = "Database/seguindo.csv";
 
         [Route("Listar")]
         public IActionResult Index()
