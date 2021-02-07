@@ -207,6 +207,5 @@ namespace back_end_totoal.Models
 
             EditarUsuario(userId, usuarioEditado);
         }
-
     }
 }

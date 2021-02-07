@@ -91,49 +91,6 @@ namespace back_end_totoal.Controllers
             // Retornar com uma atualização da pagina
             return LocalRedirect("~/Cadastrar/Listar");
         }
-
-        // =========================================== Mudar de Classe ===================================================== //
-
-        // Determinar a rota
-        [Route("Seguir")]
-        // Seguir um usuario
-        public IActionResult Seguir(int id){
-            // ViewBag que contem o ID do usuario logado
-            ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-            // Conversão de string para int
-            int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
-            // Todas as linhas do CSV
-            List<string> seguindo = usuario.ReadAllLinesCSV(PATH_SEGUINDO);
-            // Expressão Lambda para validar se o usuario ja esta ou não seguindo aquele perfil
-            var JaSeguindo =
-            seguindo.Find(
-                x =>
-                x == $"{id_UsuarioLogado};{id}"
-            );
-            // Validar se o usuario ja esta seguindo aquele perfil
-            if(JaSeguindo != null){
-                // Caso sim, ele vai recaregar a pagina
-                return LocalRedirect("~/Cadastrar/Listar");
-            } 
-            // Caso não, ele vai utilizar o metodo Seguir
-            usuario.Seguir(id_UsuarioLogado , id);
-            // Retornando com uma atualização da pagina
-            return LocalRedirect("~/Cadastrar/Listar");
-        }
-
-        // Determinar a rota
-        [Route("DeixarSeguir")]
-        // Deixar de seguir um usuario
-        public IActionResult DeixarSeguir(int id){
-            // ViewBag que contem o ID do usuario logado
-            ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-            // Conversão de string para int
-            int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
-            // Utilizando o metodo Deixar de Seguir
-            usuario.DeixarSeguir(id_UsuarioLogado, id);
-            // Retornando com uma atualização da pagina
-            return LocalRedirect("~/Cadastrar/Listar");
-        }
     }
 }
 

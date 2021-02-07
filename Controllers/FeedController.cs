@@ -28,11 +28,12 @@ namespace Prototipo_BackEnd.Controllers
         {   
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
             ViewBag.Comentario = comentario.ReadAll();
+            ViewBag.Usuarios = usuario.MostrarUsuario();
                     
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
             ViewBag.NascimentoLogado = HttpContext.Session.GetString("_NascimentoLogado");
-            ViewBag.NomeLogado = HttpContext.Session.GetString("_UserName");
+            ViewBag.NomeLogado = HttpContext.Session.GetString("_NomeLogado");
             ViewBag.EmailLogado = HttpContext.Session.GetString("_EmailLogado");
             ViewBag.UserNomeLogado = HttpContext.Session.GetString("_UserNameLogado");
             ViewBag.SenhaLogado = HttpContext.Session.GetString("_SenhaLogado");
@@ -40,16 +41,6 @@ namespace Prototipo_BackEnd.Controllers
             ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
 
             
-
-            bool redirecionamentoLogado = false;
-
-            if(ViewBag._IdUsuarioLogado != null){
-                redirecionamentoLogado = true;
-            }
-
-            if(redirecionamentoLogado == false){
-                return LocalRedirect("~/Login");
-            }
 
             return View();
         }
@@ -138,6 +129,47 @@ namespace Prototipo_BackEnd.Controllers
                 ViewBag.TotalLikes = publicacaoModel.TotalLikes(idPub);
             }
             
+            return LocalRedirect("~/Feed/Listar");
+        }
+
+        // Determinar a rota
+        [Route("Seguir")]
+        // Seguir um usuario
+        public IActionResult Seguir(int id){
+            // ViewBag que contem o ID do usuario logado
+            ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
+            // Conversão de string para int
+            int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
+            // Todas as linhas do CSV
+            List<string> seguindo = usuario.ReadAllLinesCSV(PATH_SEGUINDO);
+            // Expressão Lambda para validar se o usuario ja esta ou não seguindo aquele perfil
+            var JaSeguindo =
+            seguindo.Find(
+                x =>
+                x == $"{id_UsuarioLogado};{id}"
+            );
+            // Validar se o usuario ja esta seguindo aquele perfil
+            if(JaSeguindo != null){
+                // Caso sim, ele vai recaregar a pagina
+                return LocalRedirect("~/Cadastrar/Listar");
+            } 
+            // Caso não, ele vai utilizar o metodo Seguir
+            usuario.Seguir(id_UsuarioLogado , id);
+            // Retornando com uma atualização da pagina
+            return LocalRedirect("~/Feed/Listar");
+        }
+
+        // Determinar a rota
+        [Route("DeixarSeguir")]
+        // Deixar de seguir um usuario
+        public IActionResult DeixarSeguir(int id){
+            // ViewBag que contem o ID do usuario logado
+            ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
+            // Conversão de string para int
+            int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
+            // Utilizando o metodo Deixar de Seguir
+            usuario.DeixarSeguir(id_UsuarioLogado, id);
+            // Retornando com uma atualização da pagina
             return LocalRedirect("~/Feed/Listar");
         }
     }

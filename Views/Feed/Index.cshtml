@@ -8,28 +8,62 @@
 }
 
 <!-- Post - Section -->
-<section class="post">
-    <div class="content-post">
-        <div class="image-post">
+<main class="postAndProfiles">
+    <section class="post">
+        <div class="content-post">
+            <div class="image-post">
+                <p>Poste uma foto em nossa Rede Social</p>
+            </div>
+            <hr>
+            <form class="form-post"  method="POST" action='@Url.Action("Publicar")' enctype="multipart/form-data">
+                <div class="inputs-text">
+                    <input type="text" name="Legenda" placeholder="Digite a descrição da imagem" class="form-post-text">
+                    <input type="text" name="Localizacao" placeholder="Localização" class="form-post-text">
+                </div>
+                <div class="form-post-file">
+                    <label for="arquivo">Escolha a imagem</label>
+                    <input type="file" name="Imagem" id="arquivo">
+                    <button type="submit">Postar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="profiles">
+        <div class="content-profiles">
             <div class="content-image-post">
                 <img src="~/img/Usuarios/@ViewBag.FotoLogado">
             </div>
-            <p>Postar...</p>
+            <div class="content-names">
+                <p>@ViewBag.UserNomeLogado</p>
+                <p>@ViewBag.NomeLogado</p>
+            </div>
         </div>
-        <hr>
-        <form class="form-post"  method="POST" action='@Url.Action("Publicar")' enctype="multipart/form-data">
-            <div class="inputs-text">
-                <input type="text" name="Legenda" placeholder="Digite a descrição da imagem" class="form-post-text">
-                <input type="text" name="Localizacao" placeholder="Localização" class="form-post-text">
+        <div class="header-peoples">
+            <p>Sugestões para você</p>
+            <a href="#">Ver tudo</a>
+        </div>
+
+        @foreach (Usuario usuario1 in ViewBag.Usuarios)
+        {
+         <div class="profile-follow">
+            <div class="first-profile">
+                <div class="first-profile-img">
+                    <img src="~/img/Usuarios/@usuario1.Foto">
+                </div>
+                <div class="text-first-profile">
+                    <a href="#">@usuario1.UserName</a>
+                    <p>Sugestões para você</p>
+                </div>
             </div>
-            <div class="form-post-file">
-                <label for="arquivo">Escolha a imagem</label>
-                <input type="file" name="Imagem" id="arquivo">
-                <button type="submit">Postar</button>
+            <div class="second-profile">
+                <a asp-action="Seguir" asp-controller="Feed" asp-area="">Seguir</a>
             </div>
-        </form>
-    </div>
-</section>
+        </div>   
+        }
+    </section>
+</main>
+
 
 @foreach (Publicacao publicacao in ViewBag.Publicacoes)
 {
@@ -65,7 +99,14 @@
             <div class="likes-footer">
                 @* <p>@ViewBag.TotalLikes curtidas</p> *@
                 <p>@ViewBag.TotalLikes</p>
-                <p></p>
+            </div>
+            <div class="comentarios-publication">
+                <div class="comentarios">
+                    <div class="comentarios-footer">
+                        <p>@publicacao.NomeUsuario</p>
+                        <p>@publicacao.Legenda</p> 
+                    </div>
+                </div>
             </div>
 
             @{
