@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="second-profile">
-                    <a asp-action="Seguir" asp-controller="Feed" asp-area="">Seguir</a>
+                    <a>Seguir</a>
                 </div>
             </div>  
             } 
@@ -67,20 +67,45 @@
     </section>
 </main>
 
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="itens-modal">
+                <a href="#">Denunciar</a>
+                <a href="#">Deixar de Seguir</a>
+                <a asp-area="" asp-controller="Feed" asp-action="Delete">Excluir publicação</a>
+                <a href="#">Compartilhar em...</a>
+                <a href="#">Copiar link</a>
+                <a href="#">Incorporar</a>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">Cancelar</span></button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 @foreach (Publicacao publicacao in ViewBag.Publicacoes)
 {
     <section class="publication">
         <div class="header-publication">
-            <div class="user-publication">
-                <div class="user-image">
-                    <a href="#"><img src="../img/Usuarios/@publicacao.ImagemUsuario"></a>
+
+            <div class="user-publication-menu">
+                <div class="user-publication">
+                    <div class="user-image">
+                        <a href="#"><img src="../img/Usuarios/@publicacao.ImagemUsuario"></a>
+                    </div>
+                    <div class="user-text">
+                        <a href="#"><p>@publicacao.NomeUsuario</p></a>
+                        <p class="location">@publicacao.LocalizacaoUsuario</p>
+                    </div>
                 </div>
-                <div class="user-text">
-                    <a href="#"><p>@publicacao.NomeUsuario</p></a>
-                    <p class="location">@publicacao.LocalizacaoUsuario</p>
+                <div class="menu">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">...</button>
                 </div>
             </div>
+            
         </div>
         <div class="image-publication">
             <img src="~/img/Publicacoes/@publicacao.Imagem">

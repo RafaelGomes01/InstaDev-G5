@@ -143,6 +143,10 @@ body{
     margin-right: 18px;
 }
 
+.content-image-post img{
+    object-fit: cover;
+}
+
 .image-post img{
     width: 100%;
     height: 100%;
@@ -355,9 +359,42 @@ body{
 }
 
 .user-publication{
+    width: 100%;
     display: flex;
     align-items: center;
     margin-left: 16px;
+}
+
+.menu{
+    margin-right: 16px;
+}
+
+.btn{
+    background-color: none;
+    border: none;
+    color: black;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.btn:hover{
+    color: black;
+    background-color: white;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: none;
+}
+
+.btn-primary{
+    background-color: white;
+}
+
+.user-publication-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .user-image{
@@ -451,6 +488,69 @@ body{
 .comentarios-footer span{
     color: #2686CC;
 }
+
+.itens-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itens-modal a{
+    border-top: 1px solid rgb(200, 200, 200);
+    width: 100%;
+    text-align: center;
+    padding: 13px 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+.itens-modal a:nth-child(1), .itens-modal a:nth-child(2){
+    font-weight: 600;
+    color: red;
+}
+
+.itens-modal a:nth-last-child(2){
+    border-bottom: 1px solid rgb(200,200,200);
+}
+
+.modal-body{
+    padding: 0px;
+}
+
+.close {
+    float: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #000;
+    opacity: 1;
+    margin: 13px;
+}
+
+.close:focus{
+    outline: none;
+}
+
+.modal-title{
+    width: 100%;
+    text-align: center;
+}
+
+.itens-modal a:nth-last-child(1){
+    border-bottom: 1px solid rgb(200, 200, 200);;
+}
+
+.modal{
+    margin-top: 250px;
+}
+
+.item-modal, .modal-body, .modal-content{
+    width: 400px;
+    border-radius: 10px;
+}
+
+
 
 @media (max-width: 376px){
     /* Header - Header */

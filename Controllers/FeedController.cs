@@ -118,14 +118,11 @@ namespace Prototipo_BackEnd.Controllers
                 
             }else{
                 publicacaoModel.Like(idPub, idUser);
-                ViewBag.TotalLikes = publicacaoModel.TotalLikes(idPub);
-                Console.WriteLine($"2 - {ViewBag.TotalLikes}");
             }
             
             return LocalRedirect("~/Feed/Listar");
         }
 
-        
         [Route("Seguir")]
         public IActionResult Seguir(int id){
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
@@ -150,5 +147,7 @@ namespace Prototipo_BackEnd.Controllers
             usuario.DeixarSeguir(id_UsuarioLogado, id);
             return LocalRedirect("~/Feed/Listar");
         }
+
+        
     }
 }

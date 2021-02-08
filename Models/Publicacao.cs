@@ -165,20 +165,18 @@ namespace Prototipo_BackEnd.Models
             RewriteCSV(PATH_LIKES, likes); 
         }
 
-        public int TotalLikes(int id){
+        public string LikesCount(int id){
             string[] linhas = File.ReadAllLines(PATH_LIKES);
             int likes = 0;
-
+        
             foreach (var item in linhas)
             {
                 if(int.Parse(item.Split(";")[0]) == id){
                     likes++;
                 }
             }
-            Console.WriteLine($"1 - {likes}");
             
-
-            return likes;
+            return $"{likes}";
         }
     }
 }

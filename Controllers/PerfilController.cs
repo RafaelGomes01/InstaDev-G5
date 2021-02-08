@@ -22,9 +22,7 @@ namespace back_end_totoal.Controllers
         Usuario usuario = new Usuario();
         Publicacao publicacaoModel = new Publicacao();
         Comentario comentario = new Comentario();
-
-
-
+        
         public IActionResult Index(){
             
             ViewBag.Comentario = comentario.ReadAll();
