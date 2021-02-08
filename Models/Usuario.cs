@@ -33,6 +33,10 @@ namespace back_end_totoal.Models
             CreateFolderAndFile(PATH, PATH_SEGUINDO);
         }
 
+        public string Dark(){
+            return "Ola mundo";
+        }
+
         // Adicionar um usuario no arquivo CSV
         public void CadastrarUsuario(Usuario usuario){
             // Criar linhas com os objetos que retornaram da classe PrepareCSVLine

@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="~/css/style_perfil.css">
 
 @using Prototipo_BackEnd.Models
-@{Usuario usuario = new Usuario();}
+@{Usuario usuario = new Usuario();
+Comentario comentario = new Comentario();
+}
 
 <body>
     <!-- Informações do Perfil (Profile) -->
@@ -27,7 +29,9 @@
                     </div>
                 </div>
             </div>
-            <hr size="1px" width="100%" color="black">
+            <div class="hr-align">
+                <hr>
+            </div>
             <div class="pub-title">
                 <img src="~/img/pub-icon.png" alt="Ícone das publicações" class="pub-icon">
                 <h2>Publicações</h2>
@@ -36,67 +40,52 @@
     </div>
     
     @foreach (Publicacao publicacao in ViewBag.Publicacoes)
-    {
-        @* <div class="pub">
-            <div class="content">
-        </div>
-        <section class="pub-template">
-            <picture class="info">
-                <img src="~/img/Publicacoes/@publicacao.Imagem" alt="Publicação do usuário" class="post">
-            </picture>
-            <div class="info-post">
-                <div class="prof-info-post">
-                    <img src="~/img/pub-perfil-icon.png" alt="Imagem de perfil do usuário que fez o post" class="fotoperfil-post">
-                    <div class="prof-nomereg">
-                        <h3>@ViewBag.UserNameLogado</h3>
-                        <p>São Paulo, Brasil</p>
+    {        
+        <div class="align">
+            <section class="pub-template">
+                <picture class="info">
+                    <img src="~/img/Publicacoes/@publicacao.Imagem" alt="Publicação do usuário" class="post">
+                </picture>
+                <div class="info-post">
+                    <div class="perf-info-post">
+                        <div class="content-image-perf">
+                            <img src="../img/Usuarios/@ViewBag.FotoLogado" class="fotoperfil-post">
+                        </div>
+                        <!-- Nome - Região -->
+                        <div class="perf-nomereg">
+                            <h3>@publicacao.NomeUsuario</h3>
+                            <p>@publicacao.LocalizacaoUsuario</p>
+                        </div>
+                    </div>
+                    <div class="comentarios-publication">
+                    <div class="comentarios">
+                        <div class="comentarios-footer">
+                            <p>@publicacao.NomeUsuario</p>
+                            <p>@publicacao.Legenda</p> 
+                        </div>
                     </div>
                 </div>
-                <picture class="pub-icon-like" style="font-size: 0.8rem;">
-                    <i onclick="HeartClick(this)" class="fa fa-heart-o fa-2x"></i>
-                    <i onclick="CommentClick(this)" class="fa fa-comment-o fa-2x"></i>
-                </picture>
-                <p class="likes">1954 curtidas</p>
-                <div class="post-comments">
-                    <p><span class="post-username">@publicacao.IdUsuario</span> @publicacao.Legenda</p>
-                    <p class="exp-comments">Ver todos os 585 comentários</p>
+                <div class="post-comentarios">
+                    @{
+                        foreach (Comentario comentario1 in ViewBag.Comentario)
+                    {
+                        if(comentario.IdPublicacao == publicacao.IdPublicacao){
+                            <div class="comentarios-publication">
+                                <div class="comentarios">
+                                    <div class="comentarios-footer">
+                                        <p>@comentario1.UserName</p>
+                                        <p>@comentario1.Mensagem</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    }
                 </div>
-            </div>
-        </section>
-    </div> *@
-<div class="align">
-    <section class="pub-template">
-        <picture class="info">
-            <img src="~/img/Publicacoes/@publicacao.Imagem" alt="Publicação do usuário" class="post">
-        </picture>
-        <div class="info-post">
-            <div class="perf-info-post">
-                <div class="content-image-perf">
-                    <img src="../img/pub-perfil-icon.png" alt="Imagem de perfil do usuário que fez o post" class="fotoperfil-post">
                 </div>
-                <!-- Nome - Região -->
-                <div class="perf-nomereg">
-                    <h3>@publicacao.NomeUsuario</h3>
-                    <p>@publicacao.LocalizacaoUsuario</p>
-                </div>
-            </div>
-            <picture class="pub-icon-like" style="font-size: 0.8rem;">
-                <i onclick="HeartClick(this)" class="fa fa-heart-o fa-2x"></i>
-                <i onclick="CommentClick(this)" class="fa fa-comment-o fa-2x"></i>
-            </picture>
-            <p class="curtidas">1954 curtidas</p>
-            <div class="post-comentarios">
-                <p><span class="post-username">fausto_silva</span> Esse cara é fera bixo!!!</p>
-                <p><span class="post-username">yes_baby</span> thank you</p>
-                <p><span class="post-username">adriano_stark</span> Quando eu adormecer, vou sonhar com você. É sempre você.</p>
-                <p><span class="post-username">yes_baby</span> Yes baby!!</p>
-                <p class="exp-comments">Ver todos os 585 comentários</p>
-            </div>
+            </section>
         </div>
-    </section>
-</div>
-
-}
+        }
 </body>
 
 <script>

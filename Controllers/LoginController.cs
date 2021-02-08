@@ -12,10 +12,11 @@ namespace back_end_totoal.Controllers
     {
         // Instaciamento das classes
         Usuario usuarioModel = new Usuario();
+        Comentario comentario = new Comentario();
 
         // Atributos da Classe
         [TempData] // Arquivo Temporario
-        public string Mensagem { get; set; }
+        public string Mensagem { get; set; }        
 
         // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
@@ -27,6 +28,7 @@ namespace back_end_totoal.Controllers
         // Index para chama a pagina
         public IActionResult Index(){
             ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
+            ViewBag.Comentario = comentario.ReadAll();
             return View();
         }
 

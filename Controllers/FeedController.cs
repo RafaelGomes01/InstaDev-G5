@@ -5,12 +5,17 @@ using System.IO;
 using System;
 using back_end_totoal.Models;
 using System.Collections.Generic;
+using back_end_totoal.Controllers;
 
 namespace Prototipo_BackEnd.Controllers
 {
     [Route("Feed")]
     public class FeedController : Controller
     {
+
+        public bool Dark = true;
+        
+        
 
         // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
@@ -22,10 +27,12 @@ namespace Prototipo_BackEnd.Controllers
         Publicacao publicacaoModel = new Publicacao();
         Comentario comentario = new Comentario();
         Usuario usuario = new Usuario();
+        LoginController loginController = new LoginController();
 
         [Route("Listar")]
-        public IActionResult Index()
-        {   
+        public IActionResult Index(IFormCollection form)
+        {
+            
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
             ViewBag.Comentario = comentario.ReadAll();
             ViewBag.Usuarios = usuario.MostrarUsuario();
@@ -38,9 +45,7 @@ namespace Prototipo_BackEnd.Controllers
             ViewBag.UserNomeLogado = HttpContext.Session.GetString("_UserNameLogado");
             ViewBag.SenhaLogado = HttpContext.Session.GetString("_SenhaLogado");
 
-            ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-
-            
+            ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");           
 
             return View();
         }
@@ -127,6 +132,7 @@ namespace Prototipo_BackEnd.Controllers
             }else{
                 publicacaoModel.Like(idPub, idUser);
                 ViewBag.TotalLikes = publicacaoModel.TotalLikes(idPub);
+                Console.WriteLine($"2 - {ViewBag.TotalLikes}");
             }
             
             return LocalRedirect("~/Feed/Listar");

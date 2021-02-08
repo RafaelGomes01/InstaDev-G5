@@ -146,7 +146,7 @@ body{
 }
 
 .pub-template{
-    width: 70%;
+    width: 964px;
     height: 25.25em;
     margin-top: 3em;
     background-color: #FFFFFF;
@@ -252,10 +252,29 @@ body{
     color: #909090;
 }
 
+.hr-align{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 hr{
     background-color: #DCDCDC;
     margin: 0;
     opacity: 0.6;
+    width: 962px;
+}
+
+.comentarios-footer{
+    display: flex;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.comentarios-footer p:nth-last-child(2){
+    font-weight: 600;
+    margin-right: 7px;
 }
 
 @media screen and (max-width: 74.93em){

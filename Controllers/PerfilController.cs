@@ -26,12 +26,15 @@ namespace back_end_totoal.Controllers
 
 
         public IActionResult Index(){
+            
+            ViewBag.Comentario = comentario.ReadAll();
+
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
 
             List<string> usuarios = usuario.ReadAllLinesCSV(PATH);
 
             string IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-            ViewBag.Publicacoes = publicacaoModel.ReadAll(int.Parse(IdUsuarioLogado));
+            ViewBag.Publicacoes = publicacaoModel.ReadAll(int.Parse(IdUsuarioLogado));  
 
             ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
             bool redirecionamentoLogado = false;

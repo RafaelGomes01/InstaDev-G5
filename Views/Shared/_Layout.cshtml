@@ -21,9 +21,9 @@
             </div>
             <div class="menu-header container-header">
                 <a asp-area="" asp-controller="Feed"><img src="~/img/header-icon1-dark.png" alt=""></a>
-                <a href="#"><img src="~/img/header-icon2.png" alt=""></a>
-                <a href="#"><img src="~/img/header-icon3.png" alt=""></a>
-                <a href="#"><img src="~/img/header-icon4.png" alt=""></a>
+                <a href="#" onclick="noItem()"><img src="~/img/header-icon2.png" alt=""></a>
+                <a onclick="noItem()"><img src="~/img/contrast-circle-512.png" width="25px"></a>
+                <a href="#" onclick="noItem()"><img src="~/img/header-icon4.png" alt=""></a>
                 <div class="container-image-header">
                     <a asp-area="" asp-controller="Perfil"><img class="image-user" src="~/img/Usuarios/@ViewBag.FotoLogado"></a>
                 </div>
@@ -38,5 +38,10 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @* @RenderSection("Scripts", required: false) *@
+    <script>
+        function noItem(){
+            alert("| Em breve, aguarde |")
+        }
+    </script>
 </body>
 </html>

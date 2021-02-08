@@ -175,6 +175,8 @@ namespace Prototipo_BackEnd.Models
                     likes++;
                 }
             }
+            Console.WriteLine($"1 - {likes}");
+            
 
             return likes;
         }

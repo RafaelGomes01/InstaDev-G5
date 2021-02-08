@@ -1,4 +1,5 @@
 ﻿@using Prototipo_BackEnd.Models
+
 <link rel="stylesheet" href="~/css/style_feed.css">
 
 @{
@@ -46,20 +47,22 @@
 
         @foreach (Usuario usuario1 in ViewBag.Usuarios)
         {
-         <div class="profile-follow">
-            <div class="first-profile">
-                <div class="first-profile-img">
-                    <img src="~/img/Usuarios/@usuario1.Foto">
+            if(usuario1.IdUsuario != int.Parse(ViewBag.IdUsuarioLogado)){
+                <div class="profile-follow">
+                <div class="first-profile">
+                    <div class="first-profile-img">
+                        <img src="~/img/Usuarios/@usuario1.Foto">
+                    </div>
+                    <div class="text-first-profile">
+                        <a href="#">@usuario1.UserName</a>
+                        <p>Sugestões para você</p>
+                    </div>
                 </div>
-                <div class="text-first-profile">
-                    <a href="#">@usuario1.UserName</a>
-                    <p>Sugestões para você</p>
+                <div class="second-profile">
+                    <a asp-action="Seguir" asp-controller="Feed" asp-area="">Seguir</a>
                 </div>
-            </div>
-            <div class="second-profile">
-                <a asp-action="Seguir" asp-controller="Feed" asp-area="">Seguir</a>
-            </div>
-        </div>   
+            </div>  
+            } 
         }
     </section>
 </main>
@@ -87,7 +90,7 @@
 
                 <form method="POST" action='@Url.Action("Curtir")' enctype="multipart/form-data">
                     <textarea class="idpublicacao" name="IdPublicacao2">@publicacao.IdPublicacao</textarea>
-                    <button type="submit"><img src="../img/@ViewBag.ImageLike"></button>
+                    <button type="submit"><img src="../img/publication-like.svg"></button>
                 </form>
 
                 <form class="comentario-footer" method="POST" action='@Url.Action("Comentar")' enctype="multipart/form-data">
@@ -97,8 +100,6 @@
                 </form>
             </div>
             <div class="likes-footer">
-                @* <p>@ViewBag.TotalLikes curtidas</p> *@
-                <p>@ViewBag.TotalLikes</p>
             </div>
             <div class="comentarios-publication">
                 <div class="comentarios">
