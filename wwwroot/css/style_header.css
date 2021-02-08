@@ -98,4 +98,9 @@ body{
     .menu-header a{
         margin-left: 15px;
     }
+
+    .container-image-header{
+        width: 30px;
+        height: 30px;
+    }
 }

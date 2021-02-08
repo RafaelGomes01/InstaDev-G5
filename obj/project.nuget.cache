@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I9L98rGcM3WnuRlsIkE0h4M5jxwFNrAU2bqIFwmY+2+CBcbszb2KKP9R4WBZlDtEJvgf87DmepZjD5wTn8trAw==",
+  "dgSpecHash": "7bw6F5wqrVyAzkoufWCLN2R3SzMKgSPkXTqq97whD2SoIEMg9YYbA68ZH5QD2wDx5sXpXd/hZYSLQ42M91o+FA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rafam\\Desktop\\InstaDev\\back-end totoal.csproj",
+  "projectFilePath": "C:\\Users\\rafam\\Desktop\\InstaDev - Copia\\back-end totoal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafam\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
     "C:\\Users\\rafam\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"

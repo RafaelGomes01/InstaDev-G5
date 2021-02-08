@@ -349,3 +349,27 @@ hr{
         padding-left: 5%;
     }
 }
+
+@media (max-width: 376px){
+    .flex-base{
+        height: 180px;
+    }
+
+    .prof-userimg {
+        width: 120px;
+        height: 120px;
+    }
+
+    .pub-title{
+        margin-top: 20px;
+    }
+
+    .info-social p{
+        margin-top: 10px;
+    }
+
+    .pub-template{
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+  }

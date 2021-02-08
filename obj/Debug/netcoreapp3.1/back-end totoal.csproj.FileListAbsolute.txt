@@ -277,3 +277,43 @@ C:\Users\rafam\Desktop\InstaDev\obj\Debug\netcoreapp3.1\back-end totoal.dll
 C:\Users\rafam\Desktop\InstaDev\obj\Debug\netcoreapp3.1\back-end totoal.pdb
 C:\Users\rafam\Desktop\InstaDev\obj\Debug\netcoreapp3.1\back-end totoal.genruntimeconfig.cache
 C:\Users\rafam\Desktop\InstaDev\obj\Debug\netcoreapp3.1\back-end totoal.csproj.CopyComplete
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.exe
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.deps.json
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.runtimeconfig.json
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.runtimeconfig.dev.json
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.dll
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.pdb
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.Views.dll
+C:\Users\rafam\Desktop\InstaDev - Copia\bin\Debug\netcoreapp3.1\back-end totoal.Views.pdb
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.csprojAssemblyReference.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.AssemblyInfoInputs.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.AssemblyInfo.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.csproj.CoreCompileInputs.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.RazorAssemblyInfo.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.RazorAssemblyInfo.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.TagHelpers.input.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.TagHelpers.output.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.RazorCoreGenerate.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Cadastro\index.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Editar\Index.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Feed\Index.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Login\index.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Perfil\Index.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutNoHeader.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.RazorTargetAssemblyInfo.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.RazorTargetAssemblyInfo.cs
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.Views.pdb
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\staticwebassets\back-end totoal.StaticWebAssets.Manifest.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\staticwebassets\back-end totoal.StaticWebAssets.xml
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.dll
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.pdb
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.genruntimeconfig.cache
+C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.csproj.CopyComplete

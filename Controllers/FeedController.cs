@@ -11,12 +11,7 @@ namespace Prototipo_BackEnd.Controllers
 {
     [Route("Feed")]
     public class FeedController : Controller
-    {
-
-        public bool Dark = true;
-        
-        
-
+    {    
         // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
         private const string PATH_PUBLICACOES = "Database/publicacao.csv";
@@ -30,9 +25,7 @@ namespace Prototipo_BackEnd.Controllers
         LoginController loginController = new LoginController();
 
         [Route("Listar")]
-        public IActionResult Index(IFormCollection form)
-        {
-            
+        public IActionResult Index(){
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
             ViewBag.Comentario = comentario.ReadAll();
             ViewBag.Usuarios = usuario.MostrarUsuario();
@@ -45,14 +38,12 @@ namespace Prototipo_BackEnd.Controllers
             ViewBag.UserNomeLogado = HttpContext.Session.GetString("_UserNameLogado");
             ViewBag.SenhaLogado = HttpContext.Session.GetString("_SenhaLogado");
 
-            ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");           
-
+            ViewBag._IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
             return View();
         }
 
         [Route("Publicar")]
-        public IActionResult Publicar(IFormCollection form)
-        {
+        public IActionResult Publicar(IFormCollection form){
             Publicacao novaPublicacao = new Publicacao();
 
             novaPublicacao.IdPublicacao = publicacaoModel.IdGenerator();
@@ -77,8 +68,6 @@ namespace Prototipo_BackEnd.Controllers
                     file.CopyTo(stream);
                 }
         
-                
-
                 novaPublicacao.Imagem = file.FileName;
             }else{
                 novaPublicacao.Imagem = "post.png";
@@ -94,9 +83,7 @@ namespace Prototipo_BackEnd.Controllers
         [Route("{id}")]
         public IActionResult Delete(int id){
             publicacaoModel.Delete(id);
-
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
-
             return LocalRedirect("~/Feed/Listar");
         }
 
@@ -138,44 +125,29 @@ namespace Prototipo_BackEnd.Controllers
             return LocalRedirect("~/Feed/Listar");
         }
 
-        // Determinar a rota
+        
         [Route("Seguir")]
-        // Seguir um usuario
         public IActionResult Seguir(int id){
-            // ViewBag que contem o ID do usuario logado
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-            // Conversão de string para int
             int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
-            // Todas as linhas do CSV
             List<string> seguindo = usuario.ReadAllLinesCSV(PATH_SEGUINDO);
-            // Expressão Lambda para validar se o usuario ja esta ou não seguindo aquele perfil
             var JaSeguindo =
             seguindo.Find(
                 x =>
                 x == $"{id_UsuarioLogado};{id}"
             );
-            // Validar se o usuario ja esta seguindo aquele perfil
             if(JaSeguindo != null){
-                // Caso sim, ele vai recaregar a pagina
                 return LocalRedirect("~/Cadastrar/Listar");
             } 
-            // Caso não, ele vai utilizar o metodo Seguir
             usuario.Seguir(id_UsuarioLogado , id);
-            // Retornando com uma atualização da pagina
             return LocalRedirect("~/Feed/Listar");
         }
 
-        // Determinar a rota
         [Route("DeixarSeguir")]
-        // Deixar de seguir um usuario
         public IActionResult DeixarSeguir(int id){
-            // ViewBag que contem o ID do usuario logado
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-            // Conversão de string para int
             int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
-            // Utilizando o metodo Deixar de Seguir
             usuario.DeixarSeguir(id_UsuarioLogado, id);
-            // Retornando com uma atualização da pagina
             return LocalRedirect("~/Feed/Listar");
         }
     }

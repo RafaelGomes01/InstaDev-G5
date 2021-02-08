@@ -175,3 +175,55 @@ body{
     text-decoration: none;
     color: #2686CC;
 }
+
+@media (max-width: 376px){
+    .menu{
+        display: none;
+    }
+
+    .edit-menu{
+        width: 100%;
+    }
+
+    .edit{
+        margin-top: 10px;
+    }
+
+    .image-edit{
+        margin-top: 0px;
+        margin: 0 auto;
+    }
+
+    .form-input{
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 20px auto;
+    }
+
+    .nome-form p:nth-child(3) {
+        margin: 0px;
+        margin-top: 10px;
+    }
+
+    .form-input textarea{
+        width: 300px;
+        padding: 0px;
+        margin: 0px;
+        margin-top: 5px;
+    }
+
+    .form-edit p{
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .button{
+        margin: 0px;
+        margin-top: 30px;
+        margin: 0 auto;
+    }
+
+    .button a{
+        margin-left: 20px;
+    }
+}

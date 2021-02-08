@@ -399,6 +399,7 @@ body{
 
 .actions-footer{
     display: flex;
+    align-items: center;
     margin-top: 14px;
     margin-bottom: 7px;
 }
@@ -410,7 +411,7 @@ body{
 .actions-footer button{
     border: none;
     background-color: #FFFFFF;
-    margin: 0 17px;
+    margin-right: 17px;
 
 }
 
@@ -450,8 +451,6 @@ body{
 .comentarios-footer span{
     color: #2686CC;
 }
-
-
 
 @media (max-width: 376px){
     /* Header - Header */
@@ -522,6 +521,12 @@ body{
     }
 
     /* Post - Section */
+    .postAndProfiles{
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+    }
+
     .post{
         width: 100%;
         height: auto;
@@ -535,8 +540,6 @@ body{
     .content-post{
         margin: 20px;
     }
-
-
 
     .image-post{
         display: flex;
@@ -574,7 +577,7 @@ body{
         width: 100%;
         height: auto;
         margin-left: 0;
-        margin: 5px 0;
+        margin-top: 30px;
         border-left: none;
         border-right: none;
         border-radius: none;
@@ -588,5 +591,21 @@ body{
     .footer-publication{
         margin-left: 16px;
         margin-bottom: 20px;
+    }
+
+    .profiles{
+        display: none;
+    }
+
+    .inputs-text{
+        width: 100%;
+    }
+
+    .form-post-file{
+        width: 100%;
+    }
+
+    .image-publication{
+        height: 250px;
     }
 }

@@ -21,8 +21,7 @@ namespace back_end_totoal.Controllers
         private const string PATH_SEGUINDO = "Database/seguindo.csv";
 
         [Route("Listar")]
-        public IActionResult Index()
-        {
+        public IActionResult Index(){
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
             ViewBag.UserNameLogado = HttpContext.Session.GetString("_UserName");
             ViewBag.NomeLogado = HttpContext.Session.GetString("_NomeLogado");

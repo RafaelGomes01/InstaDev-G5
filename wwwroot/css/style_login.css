@@ -172,3 +172,9 @@ body{
 .last li:nth-last-child(1){
   margin-left: 20px;
 }
+
+@media (max-width: 376px){
+  .footer-subscribe{
+    display: none;
+  }
+}
