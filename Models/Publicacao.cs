@@ -23,6 +23,7 @@ namespace Prototipo_BackEnd.Models
         private const string PATH_COMENTARIOS = "Database/comentarios.csv";
         private const string PATH_LIKES = "Database/likes.csv";
         private const string PATH_SEGUINDO = "Database/seguindo.csv";
+        private const string PATH_DENUNCIA = "Database/denuncias.csv";
 
         public Publicacao(){
             CreateFolderAndFile(PATH_PUBLICACOES, PATH_LIKES);
@@ -148,7 +149,6 @@ namespace Prototipo_BackEnd.Models
             return $"{totalPub}";
         }
 
-        // LIkeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
         public string PrepareCSVLineLike(int idPublicacao, int idUsuario){
             return $"{idPublicacao};{idUsuario}";
         }
@@ -165,18 +165,41 @@ namespace Prototipo_BackEnd.Models
             RewriteCSV(PATH_LIKES, likes); 
         }
 
-        public string LikesCount(int id){
-            string[] linhas = File.ReadAllLines(PATH_LIKES);
-            int likes = 0;
-        
-            foreach (var item in linhas)
-            {
-                if(int.Parse(item.Split(";")[0]) == id){
-                    likes++;
-                }
-            }
+        // // Denuncia
+
+        // public void Denunciar(int idDenuncia,int idPublicacao, string motivoDenuncia){
+        //     string[] denuncia = {PrepareCSVLineDenuncia(idDenuncia, idPublicacao, motivoDenuncia)};
+        //     File.AppendAllLines(PATH_DENUNCIA, denuncia);
+        // }
+
+        // public string PrepareCSVLineDenuncia(int idDenuncia, int idPublicacao, string idUsuario){
+        //     return $"{idDenuncia};{idPublicacao};{idUsuario}";
+        // }
+
+        // public int IdGeneratorDenuncia(){
+        //     string[] linhas = File.ReadAllLines(PATH_DENUNCIA);
+        //     int IdUsuario = 0;
+        //     bool loop = true;
             
-            return $"{likes}";
-        }
+        //     foreach (var item in linhas)
+        //     {
+        //         do{
+        //             if(IdUsuario == int.Parse(item.Split(";")[0])){
+        //                 IdUsuario++;
+        //             }else{loop = false;}
+        //         }while(loop == true);
+        //     }
+
+        //     foreach (var item in linhas)
+        //     {
+        //         do{
+        //             if(IdUsuario == int.Parse(item.Split(";")[0])){
+        //                 IdUsuario++;
+        //             }else{loop = false;}
+        //         }while(loop == true);
+        //     }
+
+        //     return IdUsuario;
+        // }
     }
 }

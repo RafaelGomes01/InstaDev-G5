@@ -18,6 +18,7 @@ namespace Prototipo_BackEnd.Controllers
         private const string PATH_COMENTARIOS = "Database/comentarios.csv";
         private const string PATH_LIKES = "Database/likes.csv";
         private const string PATH_SEGUINDO = "Database/seguindo.csv";
+        private const string PATH_DENUNCIA = "Database/denuncias.csv";
         
         Publicacao publicacaoModel = new Publicacao();
         Comentario comentario = new Comentario();
@@ -29,7 +30,7 @@ namespace Prototipo_BackEnd.Controllers
             ViewBag.Publicacoes = publicacaoModel.ReadAll();
             ViewBag.Comentario = comentario.ReadAll();
             ViewBag.Usuarios = usuario.MostrarUsuario();
-                    
+
             ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
             ViewBag.FotoLogado = HttpContext.Session.GetString("_FotoLogado");
             ViewBag.NascimentoLogado = HttpContext.Session.GetString("_NascimentoLogado");
@@ -124,19 +125,21 @@ namespace Prototipo_BackEnd.Controllers
         }
 
         [Route("Seguir")]
-        public IActionResult Seguir(int id){
-            ViewBag.IdUsuarioLogado = HttpContext.Session.GetString("_IdUsuarioLogado");
-            int id_UsuarioLogado = int.Parse(ViewBag.IdUsuarioLogado);
+        public IActionResult Seguir(IFormCollection form){
+            int idUsuarioLogado = int.Parse(HttpContext.Session.GetString("_IdUsuarioLogado"));
+            int idSeguir = int.Parse(form["IdUsuario"]);
             List<string> seguindo = usuario.ReadAllLinesCSV(PATH_SEGUINDO);
+        
             var JaSeguindo =
             seguindo.Find(
                 x =>
-                x == $"{id_UsuarioLogado};{id}"
+                x == $"{idUsuarioLogado};{idSeguir}"
             );
             if(JaSeguindo != null){
-                return LocalRedirect("~/Cadastrar/Listar");
+                return LocalRedirect("~/Feed/Listar");
             } 
-            usuario.Seguir(id_UsuarioLogado , id);
+
+            usuario.Seguir(idUsuarioLogado , idSeguir);
             return LocalRedirect("~/Feed/Listar");
         }
 
@@ -147,6 +150,18 @@ namespace Prototipo_BackEnd.Controllers
             usuario.DeixarSeguir(id_UsuarioLogado, id);
             return LocalRedirect("~/Feed/Listar");
         }
+
+        // [Route("Denunciar")]
+        // public IActionResult Denunciar(IFormCollection form){
+
+        //     int idDenuncia = publicacaoModel.IdGeneratorDenuncia();
+        //     int idPub = int.Parse(form["IdPublicacao"]);
+        //     string mensagem = form["Denuncia"];
+
+        //     publicacaoModel.Denunciar(idDenuncia, idPub, mensagem);
+
+        //     return LocalRedirect("~/Feed/Listar");
+        // }
 
         
     }

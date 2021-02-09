@@ -48,7 +48,31 @@
                         
                         <div class="button">
                             <button type="submit">Enviar</button>
-                            <a asp-area="" asp-controller="Editar" asp-action="ExcluirPerfil">Desativar minha conta definitivamente</a>
+                            @* <a asp-area="" asp-controller="Editar" asp-action="ExcluirPerfil"></a> *@
+                            <button type="button" data-toggle="modal" data-target="#modalExemplo">Desativar minha conta definitivamente</button>
+
+
+                            <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="modal-image">
+                                                <div class="image-image">
+                                                    <img src="~/img/usuarios/@ViewBag.FotoLogado">
+                                                </div>
+                                                <p>Pensa bem sobre isso, depois que apertar o botão não tera volta</p>
+                                                <p> @ViewBag.UserNameLogado tem certeza que deseja fazer isso?</p>
+                                            </div>
+                                            <div class="modal-delete-excluir">
+                                                <a asp-area="" asp-controller="Editar" asp-action="ExcluirPerfil">Excluir conta</a>
+                                            </div>
+                                            <div class="button-modal">
+                                                <button type="button" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">Cancelar</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
