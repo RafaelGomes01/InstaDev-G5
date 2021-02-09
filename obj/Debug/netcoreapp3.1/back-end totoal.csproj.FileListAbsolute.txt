@@ -317,3 +317,4 @@ C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.
 C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.pdb
 C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.genruntimeconfig.cache
 C:\Users\rafam\Desktop\InstaDev - Copia\obj\Debug\netcoreapp3.1\back-end totoal.csproj.CopyComplete
+C:\Users\rafam\Desktop\InstaDev\obj\Debug\netcoreapp3.1\Razor\Views\Validacao\index.cshtml.g.cs

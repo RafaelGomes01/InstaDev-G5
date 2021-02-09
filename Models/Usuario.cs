@@ -18,6 +18,7 @@ namespace back_end_totoal.Models
         public string Email { get; set; }
         public string UserName { get; set; }
         public string Senha { get; set; }
+        public int Pin {get; set;}
         
         // Atributos da classe
         private const string PATH = "Database/usuarios.csv";
@@ -47,7 +48,7 @@ namespace back_end_totoal.Models
         // Retornar uma linha preparada para ser adicionada no CSV
         public string PrepareCSVLine(Usuario usuario){
             // Retornar uma string com todos os atributos da classe
-            return $"{usuario.IdUsuario};{usuario.Nome};{usuario.Foto};{usuario.DataNascimento};{usuario.Seguidores};{usuario.Email};{usuario.UserName};{usuario.Senha}";
+            return $"{usuario.IdUsuario};{usuario.Nome};{usuario.Foto};{usuario.DataNascimento};{usuario.Seguidores};{usuario.Email};{usuario.UserName};{usuario.Senha};{usuario.Pin}";
         }
 
         // Listar todos os Usuarios
@@ -95,6 +96,7 @@ namespace back_end_totoal.Models
                 usuario.Email = linha[5];
                 usuario.UserName = linha[6];
                 usuario.Senha = linha[7];
+                usuario.Pin = int.Parse(linha[8]);
                 // Adicionando os dados ao usuario
                 usuarios.Add(usuario);
             }
@@ -207,9 +209,17 @@ namespace back_end_totoal.Models
             usuarioEditado.Email = user.Split(";")[5];
             usuarioEditado.UserName = user.Split(";")[6];
             usuarioEditado.Senha = user.Split(";")[7];
+            usuarioEditado.Pin = int.Parse(user.Split(";")[8]);
 
 
             EditarUsuario(userId, usuarioEditado);
+        }
+
+        
+        public int PinGererator(){
+            Random randNum = new Random();
+            int pin = randNum.Next(1111, 9999);
+            return pin;
         }
     }
 }

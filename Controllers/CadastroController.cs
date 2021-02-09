@@ -1,5 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using back_end_totoal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -71,8 +75,41 @@ namespace back_end_totoal.Controllers
                 novoUsuario.Foto = "user_padrao.png";
                 novoUsuario.UserName = form["UserName"];
                 novoUsuario.Senha = form["Senha"];
+                novoUsuario.Pin = usuario.PinGererator();
+
+                // Defini o email
+                MailMessage mailMessage = new MailMessage("instadevgp5@gmail.com", form["Email"]);
+                mailMessage.Subject = "noreply@InstaDev";
+                mailMessage.IsBodyHtml = true;
+                mailMessage.Body = $"<p>Seu codigo de Email é: {novoUsuario.Pin}</p>";
+                mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
+                mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
+
+                // Server SMTP
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("instadevgp5@gmail.com", "Senai@132");
+
+                smtpClient.EnableSsl = true;
+
+                smtpClient.Send(mailMessage);
+
                 usuario.CadastrarUsuario(novoUsuario);
-                return LocalRedirect("~/Login");
+
+                List<string> usuarios = usuario.ReadAllLinesCSV(PATH);
+                var cadastrando = usuarios.Find(x=> int.Parse(x.Split(";")[0]) == novoUsuario.IdUsuario);
+
+                HttpContext.Session.SetString("CodeUsuarioCadastrando", cadastrando.Split(";")[8]);
+
+                
+
+
+
+
+
+
+                return LocalRedirect("~/Validacao");
             }
             
             ViewBag.Usuarios = usuario.MostrarUsuario();

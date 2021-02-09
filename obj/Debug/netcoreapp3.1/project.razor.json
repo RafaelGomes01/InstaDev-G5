@@ -14432,6 +14432,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\rafam\\Desktop\\InstaDev\\Views\\Validacao\\index.cshtml",
+      "TargetPath": "Views\\Validacao\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\rafam\\Desktop\\InstaDev\\Views\\Editar\\Index.cshtml",
       "TargetPath": "Views\\Editar\\Index.cshtml",
       "FileKind": "mvc"

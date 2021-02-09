@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="~/css/style_validacao.css">
+
+@{
+    Layout = "_LayoutNoHeader";
+}
+
+<body>
+    <main class="content-subscribe">
+        <div class="body-subscribe">
+            <img src="~/img/Instadev.png"alt="logo principal Instadev">
+            <div class="text1-subscribe">
+                <h1>Coloque a baixo o codigo enviado no seu email</h1>
+            </div>
+            <form class="inputs-subscribe" method="POST" action='@Url.Action("Validar")' enctype="multipart/form-data">
+                <input class="input" type="text" name="code" placeholder="Codigo" maxlength="30">
+                <button class="btn-subscribe" type="submit">Verificar</button>
+            </form>
+
+            <div class="erro">@TempData.Peek("Mensagem")</div>
+            
+            <div class="term-subscribe">
+                <p>Ao se cadastrar, você concorda com nossos <span class="bold-terms">Termos, Politica de Dados</span> e  <span class="bold-terms">Politica de Cookies.</span></p>
+            </div>
+            <div class="connect-subscribe">
+                <p>Tem uma conta? <a asp-area="" asp-controller="Login">Conecte-se</a></p> 
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
