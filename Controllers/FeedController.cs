@@ -150,19 +150,6 @@ namespace Prototipo_BackEnd.Controllers
             usuario.DeixarSeguir(id_UsuarioLogado, id);
             return LocalRedirect("~/Feed/Listar");
         }
-
-        // [Route("Denunciar")]
-        // public IActionResult Denunciar(IFormCollection form){
-
-        //     int idDenuncia = publicacaoModel.IdGeneratorDenuncia();
-        //     int idPub = int.Parse(form["IdPublicacao"]);
-        //     string mensagem = form["Denuncia"];
-
-        //     publicacaoModel.Denunciar(idDenuncia, idPub, mensagem);
-
-        //     return LocalRedirect("~/Feed/Listar");
-        // }
-
         
     }
 }
