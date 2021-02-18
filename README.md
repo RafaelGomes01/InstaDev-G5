@@ -57,7 +57,7 @@ Ter o .NetCore instalado na sua maquina ou servidor que o programa ira ser usado
 
 Link para dowload do .NetCore: https://dotnet.microsoft.com/download
 
-Para iniciar o projeto, basta entra com o terminal na basta root dos arquivos e digitar o comando dotnet run, apos isso acesse o http://localhost:5001 de sua maquina e pronto.
+Para iniciar o projeto, basta entra com o terminal na pasta root dos arquivos e digitar o comando dotnet run, apos isso acesse o http://localhost:5001 de sua maquina e pronto.
 
 <!-- Contato -->
 ## Contato 📞
